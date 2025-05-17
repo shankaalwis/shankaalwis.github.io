@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coming Soon - shankaalwis.github.io</title>
-    
+
     <!-- Lottie & Tailwind -->
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
@@ -18,9 +18,23 @@
   </head>
   <body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 px-4">
     <div class="text-center p-6 sm:p-8 rounded-xl shadow-xl bg-white max-w-md w-full">
-      <h1 class="text-2xl sm:text-4xl font-semibold text-gray-800 mb-4 sm:mb-6 break-words">shankaalwis.github.io</h1>
       
-      <div class="flex justify-center">
+      <!-- 👤 Profile Image (now above the heading) -->
+      <div class="flex justify-center mb-4">
+        <img
+          src="profile.png"
+          alt="Shanka Alwis"
+          class="w-24 h-24 rounded-full object-cover border-4 border-indigo-300 shadow-md"
+        />
+      </div>
+
+      <!-- 🔠 Site Heading -->
+      <h1 class="text-2xl sm:text-4xl font-semibold text-gray-800 mb-4 sm:mb-6 break-words">
+        shankaalwis.github.io
+      </h1>
+
+      <!-- 🌟 Lottie Animation -->
+      <div class="flex justify-center mb-4">
         <dotlottie-player
           src="https://lottie.host/2a500e42-26dd-494b-a021-53db79f680ba/xrj3fnXGAe.json"
           background="transparent"
@@ -30,8 +44,8 @@
           autoplay
         ></dotlottie-player>
       </div>
-      
-      <p class="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600">Coming Soon...</p>
+
+      <p class="mt-2 text-base sm:text-lg text-gray-600">Coming Soon...</p>
     </div>
   </body>
 </html>
