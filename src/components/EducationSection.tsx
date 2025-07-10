@@ -1,5 +1,6 @@
+
 import { useEffect, useRef, useState } from 'react';
-import { GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { GraduationCap, Calendar, MapPin, School } from 'lucide-react';
 
 const EducationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,23 +72,31 @@ const EducationSection = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="space-y-4 md:space-y-6">
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 font-mono">{edu.degree}</h3>
-                  <div className="flex flex-col space-y-2 text-muted-foreground">
-                    <span className="font-semibold text-primary text-base md:text-lg font-mono">{edu.institution}</span>
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        <span className="font-mono text-sm md:text-base">{edu.location}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span className="font-mono text-sm md:text-base">{edu.duration}</span>
-                      </div>
+                {/* Institution Icon Placeholder */}
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <School className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 font-mono">{edu.degree}</h3>
+                    <div className="flex flex-col space-y-2 text-muted-foreground">
+                      <span className="font-semibold text-primary text-base md:text-lg font-mono">{edu.institution}</span>
                     </div>
-                    <div className="text-primary font-medium font-mono">GPA: {edu.gpa}</div>
                   </div>
                 </div>
+
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <MapPin className="w-4 h-4" />
+                    <span className="font-mono text-sm md:text-base">{edu.location}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-4 h-4" />
+                    <span className="font-mono text-sm md:text-base">{edu.duration}</span>
+                  </div>
+                </div>
+                
+                <div className="text-primary font-medium font-mono">GPA: {edu.gpa}</div>
 
                 <p className="text-muted-foreground leading-relaxed font-mono text-sm md:text-base">{edu.notes}</p>
 

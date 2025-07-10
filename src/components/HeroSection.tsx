@@ -53,6 +53,10 @@ const HeroSection = () => {
           {/* Photo Section */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
+              {/* TODO: Replace with your photo */}
+              {/* <img src="YOUR_PHOTO_URL_HERE" alt="Your Name" className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover border-2 border-primary/30 cyber-glow" /> */}
+              
+              {/* Placeholder until photo is added */}
               <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-primary/20 border-2 border-primary/30 flex items-center justify-center cyber-glow">
                 <div className="text-center text-muted-foreground">
                   <div className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">

@@ -1,5 +1,6 @@
+
 import { useEffect, useRef, useState } from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Building } from 'lucide-react';
 
 const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -76,7 +77,14 @@ const ExperienceSection = () => {
               className={`glow-card p-6 md:p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid md:grid-cols-4 gap-4 md:gap-6">
+                {/* Company Icon Placeholder */}
+                <div className="md:col-span-1 flex md:justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <Building className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+                  </div>
+                </div>
+                
                 <div className="md:col-span-2">
                   <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2 font-mono">{exp.title}</h3>
                   <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-2 md:gap-4 mb-4 text-muted-foreground">
@@ -92,7 +100,7 @@ const ExperienceSection = () => {
                   </div>
                   <p className="text-muted-foreground mb-4 leading-relaxed font-mono text-sm md:text-base">{exp.description}</p>
                 </div>
-                <div className="space-y-4">
+                <div className="md:col-span-1 space-y-4">
                   <h4 className="font-semibold text-foreground font-mono">Technologies</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (

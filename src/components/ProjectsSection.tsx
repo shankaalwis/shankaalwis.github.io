@@ -65,19 +65,21 @@ const ProjectsSection = () => {
   return (
     <section id="projects" ref={sectionRef} className="py-20 px-6 bg-muted/5">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex justify-center mb-6">
+        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex items-center gap-4 mb-6">
             <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
               <Code2 className="w-8 h-8 text-primary" />
             </div>
+            <div>
+              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+                Projects
+              </h2>
+              <p className="text-lg text-muted-foreground font-mono">
+                Real-world applications of passion and problem-solving.
+              </p>
+            </div>
           </div>
-          <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Projects
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real-world applications of passion and problem-solving.
-          </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32 mx-auto mt-6"></div>
+          <div className="h-px bg-primary w-96 max-w-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
