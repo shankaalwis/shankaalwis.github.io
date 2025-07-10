@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
@@ -51,55 +50,55 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" ref={sectionRef} className="py-20 px-6 bg-background">
+    <section id="experience" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
-              <Briefcase className="w-8 h-8 text-primary" />
+        <div className={`text-left mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-4 mb-6">
+            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 w-fit">
+              <Briefcase className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             </div>
             <div>
-              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+              <h2 className="font-tech text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2">
                 Experience
               </h2>
-              <p className="text-lg text-muted-foreground font-archivo">
+              <p className="text-base md:text-lg text-muted-foreground font-mono">
                 A journey through roles that shaped my tech story.
               </p>
             </div>
           </div>
-          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
+          <div className="h-px bg-primary w-64 md:w-96 max-w-full"></div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {experiences.map((exp, index) => (
             <div 
               key={index}
-              className={`glow-card p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+              className={`glow-card p-6 md:p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6">
                 <div className="md:col-span-2">
-                  <h3 className="text-2xl font-bold text-foreground mb-2 font-archivo">{exp.title}</h3>
-                  <div className="flex flex-wrap items-center gap-4 mb-4 text-muted-foreground">
-                    <span className="font-semibold text-primary font-archivo">{exp.company}</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2 font-mono">{exp.title}</h3>
+                  <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-2 md:gap-4 mb-4 text-muted-foreground">
+                    <span className="font-semibold text-primary font-mono">{exp.company}</span>
                     <div className="flex items-center gap-1">
                       <MapPin className="w-4 h-4" />
-                      <span className="font-archivo">{exp.location}</span>
+                      <span className="font-mono text-sm md:text-base">{exp.location}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      <span className="font-archivo">{exp.duration}</span>
+                      <span className="font-mono text-sm md:text-base">{exp.duration}</span>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed font-archivo">{exp.description}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed font-mono text-sm md:text-base">{exp.description}</p>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground font-archivo">Technologies</h4>
+                  <h4 className="font-semibold text-foreground font-mono">Technologies</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30 font-archivo"
+                        className="px-3 py-1 bg-primary/20 text-primary rounded-full text-xs md:text-sm font-medium border border-primary/30 font-mono"
                       >
                         {tech}
                       </span>

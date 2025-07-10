@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 
@@ -45,60 +44,60 @@ const EducationSection = () => {
   ];
 
   return (
-    <section id="education" ref={sectionRef} className="py-20 px-6 bg-muted/5">
+    <section id="education" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 bg-muted/5">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
-              <GraduationCap className="w-8 h-8 text-primary" />
+        <div className={`text-left mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-4 mb-6">
+            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 w-fit">
+              <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             </div>
             <div>
-              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+              <h2 className="font-tech text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2">
                 Education
               </h2>
-              <p className="text-lg text-muted-foreground font-archivo">
+              <p className="text-base md:text-lg text-muted-foreground font-mono">
                 Formal foundations of knowledge and growth.
               </p>
             </div>
           </div>
-          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
+          <div className="h-px bg-primary w-64 md:w-96 max-w-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {education.map((edu, index) => (
             <div 
               key={index}
-              className={`glow-card p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`glow-card p-6 md:p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2 font-archivo">{edu.degree}</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 font-mono">{edu.degree}</h3>
                   <div className="flex flex-col space-y-2 text-muted-foreground">
-                    <span className="font-semibold text-primary text-lg font-archivo">{edu.institution}</span>
-                    <div className="flex items-center gap-4">
+                    <span className="font-semibold text-primary text-base md:text-lg font-mono">{edu.institution}</span>
+                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
-                        <span className="font-archivo">{edu.location}</span>
+                        <span className="font-mono text-sm md:text-base">{edu.location}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        <span className="font-archivo">{edu.duration}</span>
+                        <span className="font-mono text-sm md:text-base">{edu.duration}</span>
                       </div>
                     </div>
-                    <div className="text-primary font-medium font-archivo">GPA: {edu.gpa}</div>
+                    <div className="text-primary font-medium font-mono">GPA: {edu.gpa}</div>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed font-archivo">{edu.notes}</p>
+                <p className="text-muted-foreground leading-relaxed font-mono text-sm md:text-base">{edu.notes}</p>
 
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3 font-archivo">Achievements</h4>
+                  <h4 className="font-semibold text-foreground mb-3 font-mono">Achievements</h4>
                   <div className="space-y-2">
                     {edu.achievements.map((achievement, achIndex) => (
                       <div key={achIndex} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-muted-foreground font-archivo">{achievement}</span>
+                        <span className="text-muted-foreground font-mono text-sm md:text-base">{achievement}</span>
                       </div>
                     ))}
                   </div>

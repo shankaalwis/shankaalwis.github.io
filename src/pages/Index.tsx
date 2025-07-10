@@ -37,7 +37,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-archivo">
+    <div className="min-h-screen bg-background text-foreground font-mono">
       <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
       <HeroSection />
       <ExperienceSection />

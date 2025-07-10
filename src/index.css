@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221 83% 45%;
+    --primary: 213 93% 53%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96%;
@@ -31,14 +31,14 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 45%;
+    --ring: 213 93% 53%;
 
     --radius: 0.75rem;
 
-    --cyber-glow: 221 83% 45%;
-    --electric-blue: 221 100% 50%;
+    --cyber-glow: 213 93% 53%;
+    --electric-blue: 213 93% 53%;
     --neon-cyan: 180 100% 50%;
-    --tech-gradient: linear-gradient(135deg, hsl(221 83% 45%) 0%, hsl(180 100% 50%) 100%);
+    --tech-gradient: linear-gradient(135deg, hsl(213 93% 53%) 0%, hsl(213 93% 53%) 100%);
   }
 
   .dark {
@@ -51,7 +51,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 221 83% 55%;
+    --primary: 213 93% 53%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -68,12 +68,12 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 221 83% 55%;
+    --ring: 213 93% 53%;
 
-    --cyber-glow: 221 83% 55%;
-    --electric-blue: 221 100% 60%;
+    --cyber-glow: 213 93% 53%;
+    --electric-blue: 213 93% 53%;
     --neon-cyan: 180 100% 50%;
-    --tech-gradient: linear-gradient(135deg, hsl(221 83% 55%) 0%, hsl(180 100% 50%) 100%);
+    --tech-gradient: linear-gradient(135deg, hsl(213 93% 53%) 0%, hsl(213 93% 53%) 100%);
   }
 }
 
@@ -84,7 +84,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Space Mono', monospace;
   }
 
   .font-tech {
@@ -106,11 +106,11 @@
   }
 
   .tech-gradient-bg {
-    background: linear-gradient(135deg, hsl(213 93% 53% / 0.1) 0%, hsl(180 100% 50% / 0.1) 100%);
+    background: hsl(213 93% 53% / 0.1);
   }
 
   .tech-border {
-    border-image: linear-gradient(135deg, hsl(213 93% 53%) 0%, hsl(180 100% 50%) 100%) 1;
+    border: 1px solid hsl(213 93% 53%);
   }
 
   .fade-in {
@@ -135,7 +135,7 @@
 
   .tech-button {
     @apply bg-primary text-primary-foreground font-medium py-3 px-6 rounded-lg transition-all duration-300;
-    background: linear-gradient(135deg, hsl(213 93% 53%) 0%, hsl(180 100% 50%) 100%);
+    background: hsl(213 93% 53%);
   }
 
   .tech-button:hover {

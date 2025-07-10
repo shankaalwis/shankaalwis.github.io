@@ -45,7 +45,7 @@ const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
   };
 
   return (
-    <nav className="fixed top-1/2 right-6 transform -translate-y-1/2 z-50">
+    <nav className="fixed bottom-6 right-6 z-50">
       <div className="flex flex-col items-center space-y-2 bg-card/80 backdrop-blur-md border border-border/20 rounded-2xl p-3 shadow-2xl">
         {navItems.map((item) => (
           <button
