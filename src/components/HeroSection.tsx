@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { Code } from 'lucide-react';
 const HeroSection = () => {
@@ -17,7 +18,7 @@ const HeroSection = () => {
           {/* Content Section */}
           <div className="text-left order-2 lg:order-1">
             {/* Main title */}
-            <h1 className="font-tech text-3xl md:text-5xl xl:text-7xl font-bold mb-4 md:mb-6 animate-glow-pulse text-[#19399b] lg:text-8xl">
+            <h1 className="font-tech text-3xl md:text-5xl xl:text-7xl font-bold mb-4 md:mb-6 animate-glow-pulse text-primary dark:text-white lg:text-8xl">
               [Your Name]
             </h1>
             
@@ -36,7 +37,7 @@ const HeroSection = () => {
 
             {/* CTA Button */}
             <div>
-              <button className="tech-button pulse-glow font-mono text-sm md:text-base" onClick={() => document.getElementById('experience')?.scrollIntoView({
+              <button className="bg-primary text-primary-foreground font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg font-mono text-sm md:text-base" onClick={() => document.getElementById('experience')?.scrollIntoView({
               behavior: 'smooth'
             })}>
                 Explore My Journey
@@ -48,6 +49,8 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-primary/20 border-2 border-primary/30 flex items-center justify-center cyber-glow">
+                {/* Replace the src below with your actual photo URL */}
+                {/* <img src="your-photo-url-here.jpg" alt="Your Name" className="w-full h-full object-cover rounded-2xl" /> */}
                 <div className="text-center text-muted-foreground">
                   <div className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                     <Code className="w-8 h-8 md:w-12 md:h-12 text-primary" />
