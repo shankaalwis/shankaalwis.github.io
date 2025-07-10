@@ -75,15 +75,22 @@ const ContactSection = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className={`mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Let's Connect
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Reach out or follow me on any platform below.
-          </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32 mx-auto mt-6"></div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
+              <Mail className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+                Let's Connect
+              </h2>
+              <p className="text-lg text-muted-foreground font-archivo">
+                Reach out or follow me on any platform below.
+              </p>
+            </div>
+          </div>
+          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
@@ -99,7 +106,7 @@ const ContactSection = () => {
               <div className="w-16 h-16 flex items-center justify-center">
                 <link.icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <span className="text-sm font-medium mt-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+              <span className="text-sm font-medium mt-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300 font-archivo">
                 {link.name}
               </span>
             </a>
@@ -107,11 +114,11 @@ const ContactSection = () => {
         </div>
 
         <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="tech-gradient-bg p-8 rounded-2xl border border-primary/20">
+          <div className="tech-gradient-bg p-8 rounded-2xl border border-primary/20 text-left">
             <h3 className="font-tech text-2xl font-bold text-foreground mb-4">
               Ready to Collaborate?
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-6 font-archivo">
               Whether you have a project in mind, want to discuss opportunities, or just want to say hello, I'm always excited to connect with fellow innovators and creators.
             </p>
             <a 
@@ -119,13 +126,13 @@ const ContactSection = () => {
               className="tech-button inline-flex items-center gap-2"
             >
               <Mail className="w-5 h-5" />
-              Get In Touch
+              <span className="font-archivo">Get In Touch</span>
             </a>
           </div>
         </div>
 
         <div className={`mt-16 text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground font-archivo">
             © 2024 [Your Name]. Crafted with ⚡ and endless curiosity.
           </p>
         </div>

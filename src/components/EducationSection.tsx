@@ -47,19 +47,21 @@ const EducationSection = () => {
   return (
     <section id="education" ref={sectionRef} className="py-20 px-6 bg-muted/5">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex justify-center mb-6">
+        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex items-center gap-4 mb-6">
             <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
               <GraduationCap className="w-8 h-8 text-primary" />
             </div>
+            <div>
+              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+                Education
+              </h2>
+              <p className="text-lg text-muted-foreground font-archivo">
+                Formal foundations of knowledge and growth.
+              </p>
+            </div>
           </div>
-          <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Education
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Formal foundations of knowledge and growth.
-          </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32 mx-auto mt-6"></div>
+          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -71,32 +73,32 @@ const EducationSection = () => {
             >
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{edu.degree}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2 font-archivo">{edu.degree}</h3>
                   <div className="flex flex-col space-y-2 text-muted-foreground">
-                    <span className="font-semibold text-primary text-lg">{edu.institution}</span>
+                    <span className="font-semibold text-primary text-lg font-archivo">{edu.institution}</span>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
-                        <span>{edu.location}</span>
+                        <span className="font-archivo">{edu.location}</span>
                       </div>
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{edu.duration}</span>
+                        <span className="font-archivo">{edu.duration}</span>
                       </div>
                     </div>
-                    <div className="text-primary font-medium">GPA: {edu.gpa}</div>
+                    <div className="text-primary font-medium font-archivo">GPA: {edu.gpa}</div>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed">{edu.notes}</p>
+                <p className="text-muted-foreground leading-relaxed font-archivo">{edu.notes}</p>
 
                 <div>
-                  <h4 className="font-semibold text-foreground mb-3">Achievements</h4>
+                  <h4 className="font-semibold text-foreground mb-3 font-archivo">Achievements</h4>
                   <div className="space-y-2">
                     {edu.achievements.map((achievement, achIndex) => (
                       <div key={achIndex} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-muted-foreground">{achievement}</span>
+                        <span className="text-muted-foreground font-archivo">{achievement}</span>
                       </div>
                     ))}
                   </div>

@@ -21,7 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'tech': ['Orbitron', 'monospace'],
-				'inter': ['Inter', 'sans-serif'],
+				'archivo': ['Archivo', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

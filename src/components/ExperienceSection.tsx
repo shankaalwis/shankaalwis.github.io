@@ -53,19 +53,21 @@ const ExperienceSection = () => {
   return (
     <section id="experience" ref={sectionRef} className="py-20 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex justify-center mb-6">
+        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex items-center gap-4 mb-6">
             <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
               <Briefcase className="w-8 h-8 text-primary" />
             </div>
+            <div>
+              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+                Experience
+              </h2>
+              <p className="text-lg text-muted-foreground font-archivo">
+                A journey through roles that shaped my tech story.
+              </p>
+            </div>
           </div>
-          <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Experience
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A journey through roles that shaped my tech story.
-          </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32 mx-auto mt-6"></div>
+          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
         </div>
 
         <div className="space-y-8">
@@ -77,27 +79,27 @@ const ExperienceSection = () => {
             >
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="md:col-span-2">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{exp.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2 font-archivo">{exp.title}</h3>
                   <div className="flex flex-wrap items-center gap-4 mb-4 text-muted-foreground">
-                    <span className="font-semibold text-primary">{exp.company}</span>
+                    <span className="font-semibold text-primary font-archivo">{exp.company}</span>
                     <div className="flex items-center gap-1">
                       <MapPin className="w-4 h-4" />
-                      <span>{exp.location}</span>
+                      <span className="font-archivo">{exp.location}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      <span>{exp.duration}</span>
+                      <span className="font-archivo">{exp.duration}</span>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed font-archivo">{exp.description}</p>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">Technologies</h4>
+                  <h4 className="font-semibold text-foreground font-archivo">Technologies</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30"
+                        className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30 font-archivo"
                       >
                         {tech}
                       </span>

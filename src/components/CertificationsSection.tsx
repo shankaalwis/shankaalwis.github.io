@@ -61,19 +61,21 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" ref={sectionRef} className="py-20 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex justify-center mb-6">
+        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="flex items-center gap-4 mb-6">
             <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
               <Award className="w-8 h-8 text-primary" />
             </div>
+            <div>
+              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
+                Certifications
+              </h2>
+              <p className="text-lg text-muted-foreground font-archivo">
+                Proof of continued learning and professional milestones.
+              </p>
+            </div>
           </div>
-          <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Certifications
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Proof of continued learning and professional milestones.
-          </p>
-          <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent w-32 mx-auto mt-6"></div>
+          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -88,27 +90,27 @@ const CertificationsSection = () => {
                   {cert.badge}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-foreground mb-1">{cert.name}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-1 font-archivo">{cert.name}</h3>
                   <div className="flex items-center gap-4 text-muted-foreground">
-                    <span className="text-primary font-semibold">{cert.organization}</span>
+                    <span className="text-primary font-semibold font-archivo">{cert.organization}</span>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      <span>{cert.year}</span>
+                      <span className="font-archivo">{cert.year}</span>
                     </div>
                   </div>
                 </div>
                 <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
               </div>
 
-              <p className="text-muted-foreground mb-6 leading-relaxed">{cert.description}</p>
+              <p className="text-muted-foreground mb-6 leading-relaxed font-archivo">{cert.description}</p>
 
               <div>
-                <h4 className="font-semibold text-foreground mb-3">Skills Validated</h4>
+                <h4 className="font-semibold text-foreground mb-3 font-archivo">Skills Validated</h4>
                 <div className="flex flex-wrap gap-2">
                   {cert.skills.map((skill, skillIndex) => (
                     <span 
                       key={skillIndex}
-                      className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30 hover:bg-primary/30 transition-colors duration-200"
+                      className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30 hover:bg-primary/30 transition-colors duration-200 font-archivo"
                     >
                       {skill}
                     </span>
