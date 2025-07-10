@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'tech': ['Orbitron', 'monospace'],
+				'tech': ['Space Mono', 'monospace'],
 				'mono': ['Space Mono', 'monospace'],
 			},
 			colors: {
