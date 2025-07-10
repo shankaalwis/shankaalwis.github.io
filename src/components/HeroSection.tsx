@@ -1,16 +1,11 @@
-
 import { useEffect, useState } from 'react';
 import { Code } from 'lucide-react';
-
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  return (
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-background">
+  return <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-background">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
@@ -22,13 +17,13 @@ const HeroSection = () => {
           {/* Content Section */}
           <div className="text-left order-2 lg:order-1">
             {/* Main title */}
-            <h1 className="font-tech text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-primary animate-glow-pulse">
+            <h1 className="font-tech text-3xl md:text-5xl xl:text-7xl font-bold mb-4 md:mb-6 animate-glow-pulse text-[#19399b] lg:text-8xl">
               [Your Name]
             </h1>
             
             {/* Subtitle */}
             <div className="relative mb-6 md:mb-8">
-              <h2 className="font-tech text-lg md:text-xl lg:text-2xl xl:text-3xl text-primary mb-3 md:mb-4 tracking-wider">
+              <h2 className="font-tech text-lg md:text-xl xl:text-3xl text-primary mb-3 md:mb-4 tracking-wider lg:text-4xl">
                 — Digital Alchemist —
               </h2>
               <div className="h-px bg-primary w-48 md:w-64"></div>
@@ -41,10 +36,9 @@ const HeroSection = () => {
 
             {/* CTA Button */}
             <div>
-              <button 
-                className="tech-button pulse-glow font-mono text-sm md:text-base"
-                onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-              >
+              <button className="tech-button pulse-glow font-mono text-sm md:text-base" onClick={() => document.getElementById('experience')?.scrollIntoView({
+              behavior: 'smooth'
+            })}>
                 Explore My Journey
               </button>
             </div>
@@ -53,10 +47,6 @@ const HeroSection = () => {
           {/* Photo Section */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
-              {/* TODO: Replace with your photo */}
-              {/* <img src="YOUR_PHOTO_URL_HERE" alt="Your Name" className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover border-2 border-primary/30 cyber-glow" /> */}
-              
-              {/* Placeholder until photo is added */}
               <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-primary/20 border-2 border-primary/30 flex items-center justify-center cyber-glow">
                 <div className="text-center text-muted-foreground">
                   <div className="w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
@@ -73,8 +63,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
