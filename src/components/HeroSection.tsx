@@ -19,7 +19,7 @@ const HeroSection = () => {
           <div className="text-left order-2 lg:order-1">
             {/* Main title */}
             <h1 className="font-tech text-3xl md:text-5xl xl:text-7xl font-bold mb-4 md:mb-6 animate-glow-pulse text-primary dark:text-white lg:text-8xl">
-              SHANKA ALWIS
+              SHANKA ALWIS ZONE
             </h1>
             
             {/* Subtitle */}
