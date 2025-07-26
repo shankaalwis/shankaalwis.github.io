@@ -49,7 +49,7 @@ const HeroSection = () => {
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-primary/20 border-2 border-primary/30 flex items-center justify-center cyber-glow">
-                <img src="profile.png" alt="SHANKA ALWIS"  /> 
+                <img src="profile v2.png" alt="SHANKA ALWIS"  /> 
                 <div className="text-center text-muted-foreground">                 
                 </div>
               </div>
