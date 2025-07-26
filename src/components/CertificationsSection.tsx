@@ -25,37 +25,85 @@ const CertificationsSection = () => {
 
   const certifications = [
     {
-      name: "AWS Certified Solutions Architect",
-      organization: "Amazon Web Services",
-      year: "2023",
-      badge: "🏆",
-      description: "Professional level certification for designing distributed systems on AWS",
-      skills: ["Cloud Architecture", "AWS Services", "Security", "Cost Optimization"]
-    },
-    {
-      name: "Google Cloud Professional Developer",
-      organization: "Google Cloud",
-      year: "2022",
-      badge: "🌟",
-      description: "Expert-level certification for building scalable applications on Google Cloud Platform",
-      skills: ["GCP Services", "Kubernetes", "DevOps", "Application Development"]
-    },
-    {
-      name: "Microsoft Azure Fundamentals",
-      organization: "Microsoft",
-      year: "2022",
-      badge: "⚡",
-      description: "Foundational knowledge of cloud services and Azure platform",
-      skills: ["Azure Services", "Cloud Concepts", "Security", "Compliance"]
-    },
-    {
-      name: "Certified Kubernetes Administrator",
-      organization: "Cloud Native Computing Foundation",
-      year: "2021",
-      badge: "🚀",
-      description: "Expertise in Kubernetes cluster administration and orchestration",
-      skills: ["Container Orchestration", "Cluster Management", "Networking", "Security"]
-    }
+    name: "Microsoft Azure Fundamentals",
+    organization: "Microsoft",
+    year: "2022",
+    badge: "☁️",
+    description: "Fundamental knowledge of Microsoft Azure services and cloud concepts",
+    skills: ["Cloud Concepts", "Azure Services", "Pricing & Support"]
+  },
+  {
+    name: "Google IT Support Specialization",
+    organization: "Google",
+    year: "2022",
+    badge: "🛠️",
+    description: "Practical IT support skills including troubleshooting, system administration, and customer support",
+    skills: ["Troubleshooting", "System Administration", "Customer Support"]
+  },
+  {
+    name: "Google Professional Workspace Administrator",
+    organization: "Google Cloud Training",
+    year: "2022",
+    badge: "📧",
+    description: "Expertise in managing Google Workspace domains, users, and security settings",
+    skills: ["User Management", "Security Configuration", "Issue Troubleshooting"]
+  },
+  {
+    name: "Networking Basics",
+    organization: "Cisco Networking Academy",
+    year: "2024",
+    badge: "🌐",
+    description: "Foundational networking knowledge including protocols, topologies, and IP addressing",
+    skills: ["Networking", "IP Addressing", "Routing"]
+  },
+  {
+    name: "Introduction to Cyber Security",
+    organization: "Cisco Networking Academy",
+    year: "2020",
+    badge: "🔐",
+    description: "Introductory cybersecurity concepts including threats, vulnerabilities, and defense strategies",
+    skills: ["Cybersecurity", "Threat Analysis", "Risk Awareness"]
+  },
+  {
+    name: "Web Design for Beginners",
+    organization: "University of Moratuwa",
+    year: "2024",
+    badge: "🎨",
+    description: "Basics of HTML, CSS, and web design principles for building static websites",
+    skills: ["HTML", "CSS", "Web Design"]
+  },
+  {
+    name: "Python for Beginners",
+    organization: "University of Moratuwa",
+    year: "2022",
+    badge: "🐍",
+    description: "Fundamentals of Python programming and basic scripting techniques",
+    skills: ["Python", "Scripting", "Programming Basics"]
+  },
+  {
+    name: "FCF - Introduction to the Threat Landscape 2.0",
+    organization: "Fortinet",
+    year: "2024",
+    badge: "🛡️",
+    description: "Insight into evolving cybersecurity threats and modern attack methods",
+    skills: ["Threat Landscape", "Cybersecurity", "Defense Tactics"]
+  },
+  {
+    name: "FCF - Technical Introduction to Cybersecurity 1.0",
+    organization: "Fortinet",
+    year: "2024",
+    badge: "🔍",
+    description: "Technical overview of cybersecurity principles and protection mechanisms",
+    skills: ["Cybersecurity", "Security Principles", "Network Defense"]
+  },
+  {
+    name: "Prompt Design in Vertex AI",
+    organization: "Google Cloud",
+    year: "2024",
+    badge: "🤖",
+    description: "Skills in prompt engineering, multimodal analysis, and generative AI using Vertex AI",
+    skills: ["Prompt Engineering", "Image Analysis", "Generative AI"]
+  }
   ];
 
   return (
