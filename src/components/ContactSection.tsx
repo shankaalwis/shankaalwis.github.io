@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Mail, Github, MessageCircle, Instagram, Facebook, MessageSquare } from 'lucide-react';
 
@@ -134,6 +133,7 @@ const ContactSection = () => {
         <div className={`mt-16 text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <p className="text-muted-foreground font-archivo">
             © 2025 Shanka ALiws
+          </p>
         </div>
       </div>
     </section>
