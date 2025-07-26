@@ -27,14 +27,14 @@ const ContactSection = () => {
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:your.email@example.com",
+      url: "mailto:shankaalwis@gmail.com",
       color: "text-red-400",
       hoverColor: "hover:text-red-300"
     },
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/shankaalwis",
       color: "text-gray-300",
       hoverColor: "hover:text-white"
     },
@@ -48,21 +48,21 @@ const ContactSection = () => {
     {
       name: "Instagram",
       icon: Instagram,
-      url: "https://instagram.com/yourusername",
+      url: "https://instagram.com/shankaalwis",
       color: "text-pink-400",
       hoverColor: "hover:text-pink-300"
     },
     {
       name: "Facebook",
       icon: Facebook,
-      url: "https://facebook.com/yourusername",
+      url: "https://facebook.com/shankaalwis",
       color: "text-blue-400",
       hoverColor: "hover:text-blue-300"
     },
     {
       name: "WhatsApp",
       icon: MessageSquare,
-      url: "https://wa.me/1234567890",
+      url: "https://wa.me/715333531",
       color: "text-green-400",
       hoverColor: "hover:text-green-300"
     }
@@ -133,8 +133,7 @@ const ContactSection = () => {
 
         <div className={`mt-16 text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <p className="text-muted-foreground font-archivo">
-            © 2024 [Your Name]. Crafted with ⚡ and endless curiosity.
-          </p>
+            © 2025 Shanka ALiws
         </div>
       </div>
     </section>
