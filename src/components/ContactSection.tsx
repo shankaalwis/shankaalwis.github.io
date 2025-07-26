@@ -102,7 +102,7 @@ const ContactSection = () => {
               className={`contact-icon ${link.color} ${link.hoverColor} group transition-all duration-700 flex flex-col items-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-16 h-16 flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 <link.icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <span className="text-sm font-medium mt-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300 font-archivo">
@@ -121,10 +121,10 @@ const ContactSection = () => {
               Whether you have a project in mind, want to discuss opportunities, or just want to say hello, I'm always excited to connect with fellow innovators and creators.
             </p>
             <a 
-              href="mailto:your.email@example.com"
+              href="https://wa.me/715333531"
               className="tech-button inline-flex items-center gap-2"
             >
-              <Mail className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5" />
               <span className="font-archivo">Get In Touch</span>
             </a>
           </div>
