@@ -25,19 +25,41 @@ const EducationSection = () => {
 
   const education = [
     {
-      degree: "Master of Science in Computer Science",
-      institution: "University of Technology",
-      location: "San Francisco, CA",
-      duration: "2016 - 2018",
+      degree: "Bachelor of Computer Science, Cyber Security",
+      institution: "Edith Cowan University",
+      location: "Rajagiriya, LK",
+      icon: "https://www.ecu.edu.lk/wp-content/themes/wp-edith-cowan-sri-lanka/images/site-logo.svg",
+      duration: "2023 - 2025",
       gpa: "3.8/4.0",
       notes: "Specialized in Software Engineering and Machine Learning. Thesis on distributed systems optimization.",
       achievements: ["Dean's List", "Research Assistant", "CS Graduate Society President"]
     },
     {
-      degree: "Bachelor of Science in Information Technology",
-      institution: "Tech State University",
-      location: "Austin, TX",
-      duration: "2012 - 2016",
+      degree: "Diploma of Science in Computing/IT",
+      institution: " Edith Cowan College",
+      location: "Rajagiriya, LK",
+      icon: "https://media.licdn.com/dms/image/v2/D560BAQGvBFDtOPMQ9A/company-logo_200_200/company-logo_200_200/0/1738560733700/edith_cowan_college_logo?e=1756339200&v=beta&t=W5AXF90yD47wUt8QqUzMR5HG-dRaBvVaRfdTK4swaaI",
+      duration: "2023 - 2024",
+      gpa: "3.6/4.0",
+      notes: "Focus on web development and database systems. Completed senior capstone project on e-commerce platform.",
+      achievements: ["Magna Cum Laude", "Programming Club Leader", "Hackathon Winner"]
+    },
+    {
+      degree: "Diploma of Science in Computing/IT",
+      institution: " Australian College of Business and Technology (ACBT)",
+      location: "Rajagiriya, LK",
+      icon: "https://www.acbt.net/wp-content/themes/wp-acbt/images/site-logo.svg",
+      duration: "2023 - 2024",
+      gpa: "3.6/4.0",
+      notes: "Focus on web development and database systems. Completed senior capstone project on e-commerce platform.",
+      achievements: ["Magna Cum Laude", "Programming Club Leader", "Hackathon Winner"]
+    },
+    {
+      degree: "GCE Advanced Level – Mathematics",
+      institution: "Lyceum International School",
+      location: "Wattala, LK",
+      icon: "https://cdn.lyceum.lk/edgemedia/20240529130041/lyceum-school-symbol.png",
+      duration: "2016 - 2019",
       gpa: "3.6/4.0",
       notes: "Focus on web development and database systems. Completed senior capstone project on e-commerce platform.",
       achievements: ["Magna Cum Laude", "Programming Club Leader", "Hackathon Winner"]
@@ -71,11 +93,12 @@ const EducationSection = () => {
               className={`glow-card p-6 md:p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="space-y-4 md:space-y-6">
-                {/* Institution Icon Placeholder */}
+              <div className="space-y-4 md:space-y-6">               
                 <div className="flex items-start gap-4">
                   <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-                    <School className="w-8 h-8 text-primary" />
+                    <img
+                    src={edu.icon}
+                    alt={`${edu.degree} logo`} className="w-8 h-8 text-primary" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 font-mono">{edu.degree}</h3>
