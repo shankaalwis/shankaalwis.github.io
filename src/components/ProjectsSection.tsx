@@ -23,10 +23,10 @@ const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const projects = [
+    const projects = [
     {
       title: "AI-Powered Task Manager",
-      description: "A intelligent task management application that uses machine learning to prioritize tasks and suggest optimal scheduling based on user behavior patterns.",
+      description: "An intelligent task management application that uses machine learning to prioritize tasks and suggest optimal scheduling based on user behavior patterns.",
       techStack: ["React", "Node.js", "Python", "TensorFlow", "MongoDB"],
       image: "🤖",
       demoUrl: "#",
@@ -59,8 +59,72 @@ const ProjectsSection = () => {
       demoUrl: "#",
       githubUrl: "#",
       featured: false
+    },
+    {
+      title: "XL2Images",
+      description: "A Python script to bulk download images from Excel (.xlsx) sheets containing image URLs. Useful for datasets and product imagery.",
+      techStack: ["Python", "openpyxl", "requests"],
+      image: "🖼️",
+      demoUrl: "#",
+      githubUrl: "#",
+      featured: false
+    },
+    {
+      title: "Distributed Tax Estimator",
+      description: "A distributed system for estimating personal income tax using Python, Pyro5 for RPC, and SQLite for backend storage.",
+      techStack: ["Python", "Pyro5", "SQLite"],
+      image: "💰",
+      demoUrl: "#",
+      githubUrl: "#",
+      featured: false
+    },
+    {
+      title: "The Urban Nest Store",
+      description: "A WooCommerce-based webstore for home and lifestyle products with responsive design, product filters, and IPG integration.",
+      techStack: ["WooCommerce", "WordPress", "PHP", "MySQL"],
+      image: "🛒",
+      demoUrl: "https://www.theurbanneststore.com",
+      githubUrl: "#",
+      featured: true
+    },
+    {
+      title: "Dictionary Search System",
+      description: "C++ console application for dictionary management, supporting file loading, binary search, and interactive menu navigation.",
+      techStack: ["C++"],
+      image: "📚",
+      demoUrl: "#",
+      githubUrl: "#",
+      featured: false
+    },
+    {
+      title: "Block Cipher Encryption System",
+      description: "A custom block cipher using permutations, XOR operations, and prime-based substitution with full IV and key scheduling.",
+      techStack: ["Python"],
+      image: "🔐",
+      demoUrl: "#",
+      githubUrl: "#",
+      featured: false
+    },
+    {
+      title: "Time-Based Stream Cipher",
+      description: "Simulation of a stream cipher using a time-based keystream with XOR for lightweight encryption and decryption.",
+      techStack: ["Python"],
+      image: "⏱️",
+      demoUrl: "#",
+      githubUrl: "#",
+      featured: false
+    },
+    {
+      title: "CyberMiniScan v1.2",
+      description: "A lightweight offline security scanner in Scala that detects weak passwords, dangerous file types, and risky URLs.",
+      techStack: ["Scala"],
+      image: "🛡️",
+      demoUrl: "#",
+      githubUrl: "#",
+      featured: false
     }
   ];
+
 
   return (
     <section id="projects" ref={sectionRef} className="py-20 px-6 bg-muted/5">
