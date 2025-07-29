@@ -25,42 +25,6 @@ const ProjectsSection = () => {
 
     const projects = [
     {
-      title: "AI-Powered Task Manager",
-      description: "An intelligent task management application that uses machine learning to prioritize tasks and suggest optimal scheduling based on user behavior patterns.",
-      techStack: ["React", "Node.js", "Python", "TensorFlow", "MongoDB"],
-      image: "🤖",
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: true
-    },
-    {
-      title: "Real-time Collaboration Platform",
-      description: "WebRTC-based platform enabling real-time collaboration with document editing, video calls, and screen sharing capabilities.",
-      techStack: ["Vue.js", "Socket.io", "WebRTC", "Express.js", "Redis"],
-      image: "👥",
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: true
-    },
-    {
-      title: "Cryptocurrency Trading Bot",
-      description: "Automated trading bot with machine learning algorithms for market analysis and risk management across multiple exchanges.",
-      techStack: ["Python", "FastAPI", "PostgreSQL", "Docker", "Kubernetes"],
-      image: "📈",
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: false
-    },
-    {
-      title: "Smart Home IoT Dashboard",
-      description: "Full-stack application for monitoring and controlling IoT devices with real-time data visualization and automated routines.",
-      techStack: ["React Native", "Firebase", "Arduino", "MQTT", "Chart.js"],
-      image: "🏠",
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: false
-    },
-    {
       title: "XL2Images",
       description: "A Python script to bulk download images from Excel (.xlsx) sheets containing image URLs. Useful for datasets and product imagery.",
       techStack: ["Python", "openpyxl", "requests"],
