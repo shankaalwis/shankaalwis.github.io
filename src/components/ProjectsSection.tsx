@@ -30,7 +30,7 @@ const ProjectsSection = () => {
       techStack: ["Python", "openpyxl", "requests"],
       image: "🖼️",
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/XL2Images",
       featured: false
     },
     {
@@ -39,7 +39,7 @@ const ProjectsSection = () => {
       techStack: ["Python", "Pyro5", "SQLite"],
       image: "💰",
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/pitre-distributed-tax-estimator",
       featured: false
     },
     {
@@ -48,7 +48,7 @@ const ProjectsSection = () => {
       techStack: ["WooCommerce", "WordPress", "PHP", "MySQL"],
       image: "🛒",
       demoUrl: "https://www.theurbanneststore.com",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/www.theurbanneststore.com",
       featured: true
     },
     {
@@ -57,7 +57,7 @@ const ProjectsSection = () => {
       techStack: ["C++"],
       image: "📚",
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/DictionaryFileIO_SearchSystem_CPP",
       featured: false
     },
     {
@@ -66,7 +66,7 @@ const ProjectsSection = () => {
       techStack: ["Python"],
       image: "🔐",
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/Block-Cipher-Encryption-using-Custom-Permutation-and-Prime-Based-Substitution",
       featured: false
     },
     {
@@ -75,7 +75,7 @@ const ProjectsSection = () => {
       techStack: ["Python"],
       image: "⏱️",
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/Time-Based-Stream-Cipher-Simulation-using-XOR",
       featured: false
     },
     {
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
       techStack: ["Scala"],
       image: "🛡️",
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/shankaalwis/CyberMiniScan-v1.2",
       featured: false
     }
   ];
