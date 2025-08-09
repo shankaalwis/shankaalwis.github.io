@@ -26,7 +26,7 @@ const ContactSection = () => {
     {
       name: "Email",
       icon: Mail,
-      url: "mailto:shankaalwis@gmail.com",
+      url: "mailto:hello@shankaalwis.dev",
       color: "text-red-400",
       hoverColor: "hover:text-red-300"
     },
@@ -132,7 +132,7 @@ const ContactSection = () => {
 
         <div className={`mt-16 text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <p className="text-muted-foreground font-archivo">
-            © 2025 Shanka ALiws
+            © 2025 Shanka Aliws
           </p>
         </div>
       </div>

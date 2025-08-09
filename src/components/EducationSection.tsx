@@ -30,7 +30,7 @@ const EducationSection = () => {
       location: "Rajagiriya, LK",
       icon: "https://www.ecu.edu.lk/wp-content/themes/wp-edith-cowan-sri-lanka/images/site-logo.svg",
       duration: "2023 - 2025",
-      gpa: "3.8/4.0",
+      gpa: "3./4.0",
       notes: "Specialized in Software Engineering and Machine Learning. Thesis on distributed systems optimization.",
       achievements: ["Dean's List", "Research Assistant", "CS Graduate Society President"]
     },
