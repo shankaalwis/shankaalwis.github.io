@@ -27,7 +27,7 @@ const ExperienceSection = () => {
   {
     "title": "Technology Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"https://media.licdn.com/dms/image/v2/C4E0BAQGPkcxTQGEjNQ/company-logo_200_200/company-logo_200_200/0/1630652291793/spa_ceylon_logo?e=1756339200&v=beta&t=3Qgh28oMz2P69fVrD4PfanpSX4tS-MFeAyi8_ZZ-jvA",
+    "icon":"sc.jpeg",
     "location": "Sri Lanka",
     "duration": "Apr 2025 - Present",
     "description": "Leading technology initiatives and supporting the digital transformation of Spa Ceylon’s operations. Collaborating across departments to streamline systems, improve IT governance, and enable data-driven decisions.",
