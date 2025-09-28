@@ -36,7 +36,7 @@ const ExperienceSection = () => {
   {
     "title": "Junior Technology Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"https://media.licdn.com/dms/image/v2/C4E0BAQGPkcxTQGEjNQ/company-logo_200_200/company-logo_200_200/0/1630652291793/spa_ceylon_logo?e=1756339200&v=beta&t=3Qgh28oMz2P69fVrD4PfanpSX4tS-MFeAyi8_ZZ-jvA",
+    "icon":"sc.jpeg",
     "location": "Sri Lanka",
     "duration": "Dec 2024 - Apr 2025",
     "description": "Assisted in CRM and loyalty platform transitions. Coordinated with Ecomm & DTX to integrate outlet data, enhance remarketing capabilities, and improve customer experience.",
@@ -45,7 +45,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Executive",
     "company": "GOODRICH MARITIME PVT. LTD",
-    "icon":"https://media.licdn.com/dms/image/v2/D4D0BAQGXTBWvp49lpQ/company-logo_200_200/company-logo_200_200/0/1681098774750?e=1756339200&v=beta&t=U03KWW7yVfQ1z0qe4Jneuo0lQhewnTMCB92D3-afPCw",
+    "icon":"glk.jpeg",
     
     "location": "Sri Lanka",
     "duration": "Oct 2024 - Dec 2024",
@@ -56,7 +56,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Technician",
     "company": "Ceylon Agri Harvest",
-    "icon":"https://media.licdn.com/dms/image/v2/D560BAQHEI3oMsPTrxw/company-logo_200_200/company-logo_200_200/0/1727684952485/ceylonagriharvest_logo?e=1756339200&v=beta&t=tccEWMyGvLQQHMocCV_xIXrEKTNUKJczVPkmTN1wmGY",
+    "icon":"cah.jpeg",
     
     "location": "Sri Lanka",
     "duration": "2022 - Oct 2024",
@@ -66,7 +66,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Support Specialist",
     "company": "B&W Engineering Solutions",
-    "icon":"https://media.licdn.com/dms/image/v2/C560BAQFCQCJ1s9hHsg/company-logo_200_200/company-logo_200_200/0/1630656202262?e=1756339200&v=beta&t=XDhAZuFbmQa37tHuT_40oGCQakQtGYJbUfhzFOIz0iE",
+    "icon":"bwe.jpeg",
     
     "location": "Sri Lanka",
     "duration": "Nov 2021 - Aug 2023",
@@ -76,7 +76,7 @@ const ExperienceSection = () => {
   {
     "title": "Project Intern",
     "company": "B&W Engineering Solutions",
-    "icon":"https://media.licdn.com/dms/image/v2/C560BAQFCQCJ1s9hHsg/company-logo_200_200/company-logo_200_200/0/1630656202262?e=1756339200&v=beta&t=XDhAZuFbmQa37tHuT_40oGCQakQtGYJbUfhzFOIz0iE",
+    "icon":"bwe.jpeg",
     
     "location": "Sri Lanka",
     "duration": "Jan 2021 - Jun 2022",
@@ -86,7 +86,7 @@ const ExperienceSection = () => {
   {
     "title": "Video Editor",
     "company": "B&W Media Solutions",
-    "icon":"https://media.licdn.com/dms/image/v2/C560BAQF0fYWqQfBbXQ/company-logo_100_100/company-logo_100_100/0/1630590747881?e=1756339200&v=beta&t=Lzd87v0XHX5lqsTszy3G9i02yCc1PYZoVQp1BxFYD0A",
+    "icon":"bwm.jpeg",
     "location": "Remote",
     "duration": "Sep 2019 - Jun 2023",
     "description": "Created and edited video content using Adobe Premiere Pro. Designed visual assets for internal and external communications.",
