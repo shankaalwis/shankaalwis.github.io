@@ -1,6 +1,11 @@
 
 import { useEffect, useRef, useState } from 'react';
-import { Briefcase, Calendar, MapPin, Building } from 'lucide-react';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import scIcon from './sc.jpeg';
+import glkIcon from './glk.jpeg';
+import cahIcon from './cah.jpeg';
+import bweIcon from './bwe.jpeg';
+import bwmIcon from './bwm.jpeg';
 
 const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,18 +30,27 @@ const ExperienceSection = () => {
 
   const experiences = [
   {
+    "title": "Digital Transformation and Technologies Executive",
+    "company": "Spa Ceylon Ayurveda Wellness",
+    "icon": scIcon,
+    "location": "Sri Lanka",
+    "duration": "Sep 2025 - Present",
+    "description": "Led enterprise-wide technology initiatives to streamline operations and accelerate Spa Ceylon’s digital transformation. Partnered with cross-functional leaders to modernize system architecture, strengthen IT governance, and establish data pipelines and dashboards that enabled faster, evidence-based decisions. Elevated reliability and security across core systems, improved workflow automation, and supported CX and retail programs with cleaner data and better insights.",
+    "technologies": ["IT Operations", "Digital Transformation", "System Architecture", "Leadership"]
+  },  
+  {
     "title": "Technology Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"sc.jpeg",
+    "icon": scIcon,
     "location": "Sri Lanka",
-    "duration": "Apr 2025 - Present",
+    "duration": "Apr 2025 - Sep 2025",
     "description": "Leading technology initiatives and supporting the digital transformation of Spa Ceylon’s operations. Collaborating across departments to streamline systems, improve IT governance, and enable data-driven decisions.",
     "technologies": ["IT Operations", "Digital Transformation", "System Architecture", "Leadership"]
   },
   {
     "title": "Junior Technology Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"sc.jpeg",
+    "icon": scIcon,
     "location": "Sri Lanka",
     "duration": "Dec 2024 - Apr 2025",
     "description": "Assisted in CRM and loyalty platform transitions. Coordinated with Ecomm & DTX to integrate outlet data, enhance remarketing capabilities, and improve customer experience.",
@@ -45,7 +59,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Executive",
     "company": "GOODRICH MARITIME PVT. LTD",
-    "icon":"glk.jpeg",
+    "icon": glkIcon,
     
     "location": "Sri Lanka",
     "duration": "Oct 2024 - Dec 2024",
@@ -56,7 +70,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Technician",
     "company": "Ceylon Agri Harvest",
-    "icon":"cah.jpeg",
+    "icon": cahIcon,
     
     "location": "Sri Lanka",
     "duration": "2022 - Oct 2024",
@@ -66,7 +80,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Support Specialist",
     "company": "B&W Engineering Solutions",
-    "icon":"bwe.jpeg",
+    "icon": bweIcon,
     
     "location": "Sri Lanka",
     "duration": "Nov 2021 - Aug 2023",
@@ -76,7 +90,7 @@ const ExperienceSection = () => {
   {
     "title": "Project Intern",
     "company": "B&W Engineering Solutions",
-    "icon":"bwe.jpeg",
+    "icon": bweIcon,
     
     "location": "Sri Lanka",
     "duration": "Jan 2021 - Jun 2022",
@@ -86,7 +100,7 @@ const ExperienceSection = () => {
   {
     "title": "Video Editor",
     "company": "B&W Media Solutions",
-    "icon":"bwm.jpeg",
+    "icon": bwmIcon,
     "location": "Remote",
     "duration": "Sep 2019 - Jun 2023",
     "description": "Created and edited video content using Adobe Premiere Pro. Designed visual assets for internal and external communications.",
@@ -125,9 +139,17 @@ const ExperienceSection = () => {
               <div className="flex flex-col md:flex-row items-start gap-6">
                   {/* Company Icon - Left Column */}
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                      <img src={exp.icon} alt={`${exp.title} logo`} className="w-12 h-12 object-contain" />
-                    </div>
+                    <div
+                      className="w-16 h-16 rounded-2xl border border-primary/20 overflow-hidden bg-primary/5"
+                      style={{
+                        backgroundImage: `url(${exp.icon})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }}
+                      role="img"
+                      aria-label={`${exp.company} logo`}
+                    />
                   </div>
 
                   {/* Details - Right Column */}

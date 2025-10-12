@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Code2, ExternalLink, Github, Play } from 'lucide-react';
+import scIcon from './sc.jpeg';
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +29,7 @@ const ProjectsSection = () => {
       title: "Revamping the Spa Ceylon Rewards App",
       description: "Led the design, development, and implementation of a fully integrated Spa Reservation System to streamline appointment booking, enhance customer experience, and optimize operational efficiency across Spa Ceylon outlets.",
       techStack: [""],
-      icon: "https://media.licdn.com/dms/image/v2/C4E0BAQGPkcxTQGEjNQ/company-logo_200_200/company-logo_200_200/0/1630652291793/spa_ceylon_logo?e=1756339200&v=beta&t=3Qgh28oMz2P69fVrD4PfanpSX4tS-MFeAyi8_ZZ-jvA",
+      icon: scIcon,
       githubUrl: "",
       featured: true,
       highlightTag:"Key Highlights:",
@@ -47,7 +48,7 @@ const ProjectsSection = () => {
       title: "Rollout of the Spa Ceylon Spa Reservation System",
       description: "As the key digital transformation and technologies lead for the project, I took over and led the full revamp of our existing loyalty app driving the initiative forward in close collaboration with my team, my lead, senior leadership, and other departments—transforming it into a modern, data-driven platform aligned with our customer experience and retention goals. Reshaped the direction of the project and delivered an integrated, performance-oriented solution.",
       techStack: [""],
-      icon: "https://media.licdn.com/dms/image/v2/C4E0BAQGPkcxTQGEjNQ/company-logo_200_200/company-logo_200_200/0/1630652291793/spa_ceylon_logo?e=1756339200&v=beta&t=3Qgh28oMz2P69fVrD4PfanpSX4tS-MFeAyi8_ZZ-jvA",
+      icon: scIcon,
       githubUrl: "",
       featured: true,
       highlightTag:"Key Highlights:",

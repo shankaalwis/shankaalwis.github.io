@@ -25,14 +25,14 @@ const HeroSection = () => {
             {/* Subtitle */}
             <div className="relative mb-6 md:mb-8">
               <h2 className="font-tech text-lg md:text-xl xl:text-3xl text-primary mb-3 md:mb-4 tracking-wider lg:text-4xl">
-                Cybersecurity Analyst
+                Technologist
               </h2>
               <div className="h-px bg-primary w-48 md:w-64"></div>
             </div>
 
             {/* Tagline */}
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8 md:mb-12 max-w-2xl leading-relaxed font-mono">
-              Watching the wire, guarding the grid. Cybersecurity analyst navigating digital shadows to hunt threats before they breach the light.
+              Technologist weaving code, creativity, and transformation—modernizing systems by day, fortifying grids by night. From digital wellness to cyber defense, I architect smarter, safer, data-driven futures where innovation never sleeps.
             </p>
 
             {/* CTA Button */}

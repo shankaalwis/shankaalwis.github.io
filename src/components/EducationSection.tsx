@@ -2,6 +2,34 @@
 import { useEffect, useRef, useState } from 'react';
 import { GraduationCap, Calendar, MapPin, School } from 'lucide-react';
 
+const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (!icon || hasError) {
+    return (
+      <div className="flex-shrink-0">
+        <div className="w-16 h-16 rounded-2xl border border-primary/20 bg-primary/10 flex items-center justify-center">
+          <School className="w-8 h-8 text-primary" aria-hidden="true" />
+          <span className="sr-only">{alt}</span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex-shrink-0">
+      <div className="w-16 h-16 rounded-2xl border border-primary/20 overflow-hidden bg-primary/5 flex items-center justify-center">
+        <img
+          src={icon}
+          alt={alt}
+          className="max-w-[70%] max-h-[70%] object-contain"
+          onError={() => setHasError(true)}
+        />
+      </div>
+    </div>
+  );
+};
+
 const EducationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,7 +66,7 @@ const EducationSection = () => {
       degree: "Diploma of Science in Computing/IT",
       institution: " Edith Cowan College",
       location: "Rajagiriya, LK",
-      icon: "https://media.licdn.com/dms/image/v2/D560BAQGvBFDtOPMQ9A/company-logo_200_200/company-logo_200_200/0/1738560733700/edith_cowan_college_logo?e=1756339200&v=beta&t=W5AXF90yD47wUt8QqUzMR5HG-dRaBvVaRfdTK4swaaI",
+      icon: "https://www.edithcowancollege.edu.au/wp-content/themes/wp-edith-cowan-college/images/site-logo.svg",
       duration: "2023 - 2024",
       gpa: "3.3/4.0",
       notes: "Focused on applied communications, systems and database design, computer security, and core computing fundamentals, building a strong foundation for advanced studies in information technology.",
@@ -58,7 +86,7 @@ const EducationSection = () => {
       degree: "Motor Mechanism Part-I/II",
       institution: "Automobile Engineering Training Institute",
       location: "AETI, LK",
-      icon: "https://media.licdn.com/dms/image/v2/D560BAQFMInVcCSOH-A/company-logo_200_200/company-logo_200_200/0/1693208033180?e=1757548800&v=beta&t=fWHZvQsc5LoGu1LO2isZHZttVbKUZMiOwZk7c9abSfs",
+      icon: "https://www.pickacourse.lk/storage/28/29.Automobile.jpg",
       duration: "2023 - 2024",
       gpa: "",
       notes: "Completed foundational training in motor mechanism, covering basic automotive systems, engine components, maintenance practices, and mechanical principles essential for further specialization in automobile engineering.",
@@ -104,13 +132,7 @@ const EducationSection = () => {
             >
               <div className="space-y-4 md:space-y-6">               
                 <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-                    <img
-                      src={edu.icon}
-                      alt={`${edu.degree} logo`}
-                      className="w-8 h-8 text-primary"
-                    />
-                  </div>
+                  <EducationLogo icon={edu.icon} alt={`${edu.institution} logo`} />
                   <div className="flex-1">
                     <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 font-mono">{edu.degree}</h3>
                     <div className="flex flex-col space-y-2 text-muted-foreground">
