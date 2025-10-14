@@ -1,6 +1,39 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Briefcase, Calendar, MapPin, Building } from 'lucide-react';
+import spaCeylonIcon from '../assets/experience/sc.jpeg';
+import goodrichIcon from '../assets/experience/glk.jpeg';
+import ceylonAgriIcon from '../assets/experience/cah.jpeg';
+import bwEngineeringIcon from '../assets/experience/bwe.jpeg';
+import bwMediaIcon from '../assets/experience/bwm.jpeg';
+
+const ExperienceLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (!icon || hasError) {
+    return (
+      <div className="flex-shrink-0">
+        <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+          <Building className="w-8 h-8 text-primary" aria-hidden="true" />
+          <span className="sr-only">{alt}</span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex-shrink-0">
+      <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center overflow-hidden">
+        <img
+          src={icon}
+          alt={alt}
+          className="w-12 h-12 object-contain"
+          onError={() => setHasError(true)}
+        />
+      </div>
+    </div>
+  );
+};
 
 const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,7 +60,7 @@ const ExperienceSection = () => {
   {
     "title": "Digital Transformation and Technologies Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"/c.jpeg",
+    "icon": spaCeylonIcon,
     "location": "Sri Lanka",
     "duration": "Sep 2025 - Present",
     "description": "Led enterprise-wide technology initiatives to streamline operations and accelerate Spa Ceylon’s digital transformation. Partnered with cross-functional leaders to modernize system architecture, strengthen IT governance, and establish data pipelines and dashboards that enabled faster, evidence-based decisions. Elevated reliability and security across core systems, improved workflow automation, and supported CX and retail programs with cleaner data and better insights.",
@@ -36,7 +69,7 @@ const ExperienceSection = () => {
   {
     "title": "Technology Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"/sc.jpeg",
+    "icon": spaCeylonIcon,
     "location": "Sri Lanka",
     "duration": "Apr 2025 - Sep 2025",
     "description": "Leading technology initiatives and supporting the digital transformation of Spa Ceylon’s operations. Collaborating across departments to streamline systems, improve IT governance, and enable data-driven decisions.",
@@ -45,7 +78,7 @@ const ExperienceSection = () => {
   {
     "title": "Junior Technology Executive",
     "company": "Spa Ceylon Ayurveda Wellness",
-    "icon":"/sc.jpeg",
+    "icon": spaCeylonIcon,
     "location": "Sri Lanka",
     "duration": "Dec 2024 - Apr 2025",
     "description": "Assisted in CRM and loyalty platform transitions. Coordinated with Ecomm & DTX to integrate outlet data, enhance remarketing capabilities, and improve customer experience.",
@@ -54,7 +87,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Executive",
     "company": "GOODRICH MARITIME PVT. LTD",
-    "icon":"/glk.jpeg",
+    "icon": goodrichIcon,
     
     "location": "Sri Lanka",
     "duration": "Oct 2024 - Dec 2024",
@@ -65,7 +98,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Technician",
     "company": "Ceylon Agri Harvest",
-    "icon":"cah.jpeg",
+    "icon": ceylonAgriIcon,
     
     "location": "Sri Lanka",
     "duration": "2022 - Oct 2024",
@@ -75,7 +108,7 @@ const ExperienceSection = () => {
   {
     "title": "IT Support Specialist",
     "company": "B&W Engineering Solutions",
-    "icon":"bwe.jpeg",
+    "icon": bwEngineeringIcon,
     
     "location": "Sri Lanka",
     "duration": "Nov 2021 - Aug 2023",
@@ -85,7 +118,7 @@ const ExperienceSection = () => {
   {
     "title": "Project Intern",
     "company": "B&W Engineering Solutions",
-    "icon":"bwe.jpeg",
+    "icon": bwEngineeringIcon,
     
     "location": "Sri Lanka",
     "duration": "Jan 2021 - Jun 2022",
@@ -95,7 +128,7 @@ const ExperienceSection = () => {
   {
     "title": "Video Editor",
     "company": "B&W Media Solutions",
-    "icon":"bwm.jpeg",
+    "icon": bwMediaIcon,
     "location": "Remote",
     "duration": "Sep 2019 - Jun 2023",
     "description": "Created and edited video content using Adobe Premiere Pro. Designed visual assets for internal and external communications.",
@@ -133,11 +166,7 @@ const ExperienceSection = () => {
 
               <div className="flex flex-col md:flex-row items-start gap-6">
                   {/* Company Icon - Left Column */}
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                      <img src={exp.icon} alt={`${exp.title} logo`} className="w-12 h-12 object-contain" />
-                    </div>
-                  </div>
+                  <ExperienceLogo icon={exp.icon} alt={`${exp.title} logo`} />
 
                   {/* Details - Right Column */}
                   <div className="flex-1 grid md:grid-cols-3 gap-4 md:gap-6">
