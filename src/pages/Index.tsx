@@ -7,6 +7,7 @@ import CertificationsSection from '@/components/CertificationsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import FloatingNav from '@/components/FloatingNav';
+import BackgroundEffect from '@/components/BackgroundEffect';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -36,14 +37,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+      <BackgroundEffect isDark={isDark} />
       <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
-      <HeroSection />
-      <ExperienceSection />
-      <EducationSection />
-      <CertificationsSection />
-      <ProjectsSection />
-      <ContactSection />
+      <div className="relative z-10 selection:bg-primary/20">
+        <HeroSection />
+        <ExperienceSection />
+        <EducationSection />
+        <CertificationsSection />
+        <ProjectsSection />
+        <ContactSection />
+      </div>
     </div>
   );
 };

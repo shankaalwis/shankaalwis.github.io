@@ -155,7 +155,7 @@ const ProjectsSection = () => {
 
 
   return (
-    <section id="projects" ref={sectionRef} className="py-24 bg-background">
+    <section id="projects" ref={sectionRef} className="py-24 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Projects</h2>

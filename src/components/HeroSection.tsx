@@ -10,7 +10,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-background">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-transparent">
       {/* Background gradients */}
       <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] opacity-50" />
       <div className="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] opacity-30" />
