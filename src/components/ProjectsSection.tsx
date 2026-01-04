@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Code2, Github, Play } from 'lucide-react';
+import { Code2, Github, Play, ShoppingCart, BookA, Lock, Timer, Shield, Info } from 'lucide-react';
 import scIcon from './sc.jpeg';
 import fluxIcon from './flux.png';
 import spaIcon from './spa-ceylon.png';
@@ -89,15 +89,6 @@ const ProjectsSection = () => {
       demoUrl: "https://bookspaceylon.com",
     },
     {
-      title: "The Urban Nest Store",
-      description: "A WooCommerce-based webstore for home and lifestyle products with responsive design, product filters, and IPG integration.",
-      techStack: ["WooCommerce", "WordPress", "PHP", "MySQL"],
-      image: "🛒",
-      demoUrl: "https://www.theurbanneststore.com",
-      githubUrl: "https://github.com/shankaalwis/www.theurbanneststore.com",
-      featured: true
-    },
-    {
       title: "SYCL Dashboard",
       description: "Manage your subscription business with powerful analytics, multi-currency support, and automated billing workflows.",
       techStack: ["React", "TypeScript", "Tailwind CSS"],
@@ -116,10 +107,19 @@ const ProjectsSection = () => {
       ],
     },
     {
+      title: "The Urban Nest Store",
+      description: "A WooCommerce-based webstore for home and lifestyle products with responsive design, product filters, and IPG integration.",
+      techStack: ["WooCommerce", "WordPress", "PHP", "MySQL"],
+      icon: ShoppingCart,
+      demoUrl: "https://www.theurbanneststore.com",
+      githubUrl: "https://github.com/shankaalwis/www.theurbanneststore.com",
+      featured: true
+    },
+    {
       title: "Dictionary Search System",
       description: "C++ console application for dictionary management, supporting file loading, binary search, and interactive menu navigation.",
       techStack: ["C++"],
-      image: "📚",
+      icon: BookA,
       demoUrl: "#",
       githubUrl: "https://github.com/shankaalwis/DictionaryFileIO_SearchSystem_CPP",
       featured: false
@@ -128,7 +128,7 @@ const ProjectsSection = () => {
       title: "Block Cipher Encryption System",
       description: "A custom block cipher using permutations, XOR operations, and prime-based substitution with full IV and key scheduling.",
       techStack: ["Python"],
-      image: "🔐",
+      icon: Lock,
       demoUrl: "#",
       githubUrl: "https://github.com/shankaalwis/Block-Cipher-Encryption-using-Custom-Permutation-and-Prime-Based-Substitution",
       featured: false
@@ -137,7 +137,7 @@ const ProjectsSection = () => {
       title: "Time-Based Stream Cipher",
       description: "Simulation of a stream cipher using a time-based keystream with XOR for lightweight encryption and decryption.",
       techStack: ["Python"],
-      image: "⏱️",
+      icon: Timer,
       demoUrl: "#",
       githubUrl: "https://github.com/shankaalwis/Time-Based-Stream-Cipher-Simulation-using-XOR",
       featured: false
@@ -146,7 +146,7 @@ const ProjectsSection = () => {
       title: "CyberMiniScan v1.2",
       description: "A lightweight offline security scanner in Scala that detects weak passwords, dangerous file types, and risky URLs.",
       techStack: ["Scala"],
-      image: "🛡️",
+      icon: Shield,
       demoUrl: "#",
       githubUrl: "https://github.com/shankaalwis/CyberMiniScan-v1.2",
       featured: false
@@ -182,13 +182,16 @@ const ProjectsSection = () => {
                   {/* @ts-ignore */}
                   <div className={`w-14 h-14 flex items-center justify-center rounded-2xl ${project.forceWhiteBackground ? 'bg-white p-2' : 'bg-secondary/50'} group-hover:scale-110 transition-transform duration-300 overflow-hidden`}>
                     {/* @ts-ignore */}
-                    {project.icon ? (
+                    {project.icon && typeof project.icon === 'string' ? (
                       <img
                         /* @ts-ignore */
                         src={project.icon}
                         alt={`${project.title} icon`}
                         className="w-full h-full object-contain"
                       />
+                    ) : project.icon ? (
+                      /* @ts-ignore */
+                      <project.icon className="w-8 h-8 text-primary" />
                     ) : (
                       /* @ts-ignore */
                       <span className="text-3xl">{project.image}</span>

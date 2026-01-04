@@ -47,12 +47,11 @@ const HeroSection = () => {
           {/* Photo Section */}
           <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-border/50 bg-muted/50 transition-transform duration-500 group-hover:scale-[1.01]">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] transition-transform duration-500 group-hover:scale-[1.01]">
                 <img
-                  src="profile v2.png"
+                  src="/profile-2026.png"
                   alt="SHANKA ALWIS"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain filter drop-shadow-2xl"
                 />
               </div>
             </div>
