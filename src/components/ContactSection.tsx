@@ -27,116 +27,100 @@ const ContactSection = () => {
       name: "Email",
       icon: Mail,
       url: "mailto:hello@shankaalwis.dev",
-      color: "text-red-400",
-      hoverColor: "hover:text-red-300"
+      color: "text-red-500",
     },
     {
       name: "GitHub",
       icon: Github,
       url: "https://github.com/shankaalwis",
-      color: "text-gray-300",
-      hoverColor: "hover:text-white"
+      color: "text-foreground",
     },
     {
       name: "Discord",
       icon: MessageCircle,
       url: "https://discord.gg/yourinvite",
-      color: "text-indigo-400",
-      hoverColor: "hover:text-indigo-300"
+      color: "text-indigo-500",
     },
     {
       name: "Instagram",
       icon: Instagram,
       url: "https://instagram.com/shankaalwis",
-      color: "text-pink-400",
-      hoverColor: "hover:text-pink-300"
+      color: "text-pink-500",
     },
     {
       name: "Facebook",
       icon: Facebook,
       url: "https://facebook.com/shankaalwis",
-      color: "text-blue-400",
-      hoverColor: "hover:text-blue-300"
+      color: "text-blue-600",
     },
     {
       name: "WhatsApp",
       icon: MessageSquare,
       url: "https://wa.me/715333531",
-      color: "text-green-400",
-      hoverColor: "hover:text-green-300"
+      color: "text-green-500",
     }
   ];
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 px-6 bg-background relative overflow-hidden">
+    <footer id="contact" ref={sectionRef} className="py-24 bg-secondary/30 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-      </div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
-              <Mail className="w-8 h-8 text-primary" />
-            </div>
-            <div>
-              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
-                Let's Connect
-              </h2>
-              <p className="text-lg text-muted-foreground font-archivo">
-                Reach out or follow me on any platform below.
-              </p>
-            </div>
-          </div>
-          <div className="h-px bg-gradient-to-r from-primary via-primary/50 to-transparent w-96 max-w-full"></div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            Let's Connect
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Reach out or follow me on any platform below.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
           {contactLinks.map((link, index) => (
             <a
               key={index}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`contact-icon ${link.color} ${link.hoverColor} group transition-all duration-700 flex flex-col items-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`bg-card hover:bg-background border border-border/50 hover:border-primary/30 p-6 rounded-2xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-center justify-center">
-                <link.icon className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <span className="text-sm font-medium mt-2 text-muted-foreground group-hover:text-foreground transition-colors duration-300 font-archivo">
+              <link.icon className={`w-8 h-8 ${link.color} transition-transform duration-300 group-hover:scale-110`} />
+              <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                 {link.name}
               </span>
             </a>
           ))}
         </div>
 
-        <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="tech-gradient-bg p-8 rounded-2xl border border-primary/20 text-left">
-            <h3 className="font-tech text-2xl font-bold text-foreground mb-4">
+        <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 text-center shadow-sm">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Ready to Collaborate?
             </h3>
-            <p className="text-muted-foreground mb-6 font-archivo">
+            <p className="text-muted-foreground mb-8 text-lg leading-relaxed max-w-2xl mx-auto">
               Whether you have a project in mind, want to discuss opportunities, or just want to say hello, I'm always excited to connect with fellow innovators and creators.
             </p>
-            <a 
-              href="https://wa.me/715333531"
-              className="tech-button inline-flex items-center gap-2"
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span className="font-archivo">Get In Touch</span>
-            </a>
+            <div className="flex justify-center">
+              <a
+                href="https://wa.me/715333531"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Get In Touch</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className={`mt-16 text-center transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-muted-foreground font-archivo">
-            © 2025 Shanka Aliws
+        <div className={`mt-16 text-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="text-muted-foreground text-sm">
+            © 2026 Shanka Alwis
           </p>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 

@@ -1,65 +1,66 @@
-
 import { useEffect, useState } from 'react';
-import { Code } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-background">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
-        <div className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+  return (
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-background">
+      {/* Background gradients */}
+      <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] opacity-50" />
+      <div className="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] opacity-30" />
+
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content Section */}
-          <div className="text-left order-2 lg:order-1">
-            {/* Main title */}
-            <h1 className="font-tech text-3xl md:text-5xl xl:text-7xl font-bold mb-4 md:mb-6 animate-glow-pulse text-primary dark:text-white lg:text-8xl">
-              SHANKA ALWIS
-            </h1>
-            
-            {/* Subtitle */}
-            <div className="relative mb-6 md:mb-8">
-              <h2 className="font-tech text-lg md:text-xl xl:text-3xl text-primary mb-3 md:mb-4 tracking-wider lg:text-4xl">
+          <div className={`space-y-8 text-center lg:text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="space-y-4">
+              <h2 className="text-primary font-medium tracking-wide uppercase text-sm md:text-base animate-fade-in">
                 Technologist
               </h2>
-              <div className="h-px bg-primary w-48 md:w-64"></div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">
+                SHANKA ALWIS
+              </h1>
             </div>
 
-            {/* Tagline */}
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8 md:mb-12 max-w-2xl leading-relaxed font-mono">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
               Technologist weaving code, creativity, and transformation—modernizing systems by day, fortifying grids by night. From digital wellness to cyber defense, I architect smarter, safer, data-driven futures where innovation never sleeps.
             </p>
 
-            {/* CTA Button */}
-            <div>
-              <button className="bg-primary text-primary-foreground font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg font-mono text-sm md:text-base" onClick={() => document.getElementById('experience')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
+            <div className="pt-4 flex justify-center lg:justify-start">
+              <Button
+                size="lg"
+                className="rounded-full px-8 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105"
+                onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Explore My Journey
-              </button>
+                <ArrowDown className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
 
           {/* Photo Section */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-primary/20 border-2 border-primary/30 flex items-center justify-center cyber-glow">
-                <img src="profile v2.png" alt="SHANKA ALWIS"  /> 
-                <div className="text-center text-muted-foreground">                 
-                </div>
+          <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-blue-500/20 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-border/50 bg-muted/50 transition-transform duration-500 group-hover:scale-[1.01]">
+                <img
+                  src="profile v2.png"
+                  alt="SHANKA ALWIS"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/50 rounded-full blur-sm"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/50 rounded-full blur-sm"></div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

@@ -1,7 +1,9 @@
-
 import { useEffect, useRef, useState } from 'react';
-import { Code2, ExternalLink, Github, Play } from 'lucide-react';
+import { Code2, Github, Play } from 'lucide-react';
 import scIcon from './sc.jpeg';
+import fluxIcon from './flux.png';
+import spaIcon from './spa-ceylon.png';
+import syclIcon from './sycl.svg';
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,45 +26,65 @@ const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-    const projects = [
+  const projects = [
+    {
+      title: "FLUX - Financial Clarity",
+      description: "Transform complex PDF bank statements into clear, actionable insights. Experience automated analysis with enterprise-grade privacy and security.",
+      techStack: ["React", "TypeScript", "Node.js", "AI Analysis"],
+      icon: fluxIcon,
+      demoUrl: "https://flux.shankaalwis.dev",
+      githubUrl: "#",
+      featured: true,
+      highlightTag: "Key Features:",
+      highlightText: [
+        <ul style={{ paddingLeft: "1.5em", listStyleType: "disc" }} key="flux-list">
+          <li><strong>Automated Analysis:</strong> Intelligent engine categorizes transactions and identifies subscriptions instantly from PDF uploads.</li>
+          <li><strong>Actionable Insights:</strong> Gain immediate visibility into spending patterns and financial health with clear visualizations.</li>
+          <li><strong>Enterprise Security:</strong> Built with privacy-first architecture ensuring your financial data remains secure.</li>
+          <li><strong>Broad Support:</strong> Compatible with PDF statements from most major banking institutions.</li>
+        </ul>
+      ],
+    },
     {
       title: "Revamping the Spa Ceylon Rewards App",
       description: "Led the design, development, and implementation of a fully integrated Spa Reservation System to streamline appointment booking, enhance customer experience, and optimize operational efficiency across Spa Ceylon outlets.",
       techStack: [""],
-      icon: scIcon,
+      icon: spaIcon,
+      forceWhiteBackground: true,
       githubUrl: "",
       featured: true,
-      highlightTag:"Key Highlights:",
-    highlightText: [
-      <ul style={{ paddingLeft: "1.5em", listStyleType: "disc" }}>
+      highlightTag: "Key Highlights:",
+      highlightText: [
+        <ul style={{ paddingLeft: "1.5em", listStyleType: "disc" }} key="list">
           <li><strong>App Overhaul:</strong> Completely redesigned and re-engineered the existing loyalty app to improve usability, functionality, and scalability across digital and in-store touchpoints.</li>
-        <li><strong>POS System Integration:</strong> Seamlessly integrated the app with our existing POS infrastructure, enabling real-time transaction syncing and unlocking unified customer profiles.</li>
-        <li><strong>Outlet Data Integration:</strong> Centralized outlet-level customer data to enable personalized remarketing, campaign optimization, and more accurate customer segmentation.</li>
-        <li><strong>Enhanced CX & Retention:</strong> Focused on streamlining user journeys, improving loyalty mechanics, and strengthening member engagement to drive repeat transactions.</li>
-        <li><strong>Cross-Functional Leadership:</strong> Served as the key digital transformation lead, collaborating with CRM, retail, tech, and marketing teams to deliver a coordinated rollout and long-term impact.</li>
-      </ul>
-    ],
+          <li><strong>POS System Integration:</strong> Seamlessly integrated the app with our existing POS infrastructure, enabling real-time transaction syncing and unlocking unified customer profiles.</li>
+          <li><strong>Outlet Data Integration:</strong> Centralized outlet-level customer data to enable personalized remarketing, campaign optimization, and more accurate customer segmentation.</li>
+          <li><strong>Enhanced CX & Retention:</strong> Focused on streamlining user journeys, improving loyalty mechanics, and strengthening member engagement to drive repeat transactions.</li>
+          <li><strong>Cross-Functional Leadership:</strong> Served as the key digital transformation lead, collaborating with CRM, retail, tech, and marketing teams to deliver a coordinated rollout and long-term impact.</li>
+        </ul>
+      ],
       demoUrl: "https://lk.spaceylon.com/pages/spa-ceylon-rewards",
     },
     {
       title: "Rollout of the Spa Ceylon Spa Reservation System",
       description: "As the key digital transformation and technologies lead for the project, I took over and led the full revamp of our existing loyalty app driving the initiative forward in close collaboration with my team, my lead, senior leadership, and other departments—transforming it into a modern, data-driven platform aligned with our customer experience and retention goals. Reshaped the direction of the project and delivered an integrated, performance-oriented solution.",
       techStack: [""],
-      icon: scIcon,
+      icon: spaIcon,
+      forceWhiteBackground: true,
       githubUrl: "",
       featured: true,
-      highlightTag:"Key Highlights:",
+      highlightTag: "Key Highlights:",
       highlightText: [
-  <ul style={{ paddingLeft: "1.5em", listStyleType: "disc" }}>
-    <li><strong>End-to-End Project Ownership:</strong> Managed the project lifecycle from requirement gathering, technology selection, and system design to deployment and post-launch optimization.</li>
-    <li><strong>Stakeholder Coordination:</strong> Worked closely with outlet managers, IT teams, and directly with company directors to gather, refine, and prioritize business requirements.</li>
-    <li><strong>Staff Training & Onboarding:</strong> Acted as the key person in educating staff and all system users, conducting training sessions across outlets to ensure smooth adoption and confident usage.</li>
-    <li><strong>Customer-Centric Design:</strong> Developed a user-friendly online booking interface with real-time slot availability, integrated payment gateway, and automated confirmation/reminder notifications.</li>
-    <li><strong>Data Integration:</strong> Linked the reservation platform with the loyalty system and CRM to enable personalized marketing campaigns and improved retention.</li>
-    <li><strong>Process Automation:</strong> Reduced manual booking errors and administrative workload by implementing calendar syncing and automated reporting.</li>
-    <li><strong>Performance Monitoring:</strong> Set KPIs to track booking conversion rates, customer satisfaction, and repeat visit patterns.</li>
-  </ul>
-],
+        <ul style={{ paddingLeft: "1.5em", listStyleType: "disc" }} key="list2">
+          <li><strong>End-to-End Project Ownership:</strong> Managed the project lifecycle from requirement gathering, technology selection, and system design to deployment and post-launch optimization.</li>
+          <li><strong>Stakeholder Coordination:</strong> Worked closely with outlet managers, IT teams, and directly with company directors to gather, refine, and prioritize business requirements.</li>
+          <li><strong>Staff Training & Onboarding:</strong> Acted as the key person in educating staff and all system users, conducting training sessions across outlets to ensure smooth adoption and confident usage.</li>
+          <li><strong>Customer-Centric Design:</strong> Developed a user-friendly online booking interface with real-time slot availability, integrated payment gateway, and automated confirmation/reminder notifications.</li>
+          <li><strong>Data Integration:</strong> Linked the reservation platform with the loyalty system and CRM to enable personalized marketing campaigns and improved retention.</li>
+          <li><strong>Process Automation:</strong> Reduced manual booking errors and administrative workload by implementing calendar syncing and automated reporting.</li>
+          <li><strong>Performance Monitoring:</strong> Set KPIs to track booking conversion rates, customer satisfaction, and repeat visit patterns.</li>
+        </ul>
+      ],
 
       demoUrl: "https://bookspaceylon.com",
     },
@@ -75,23 +97,23 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/shankaalwis/www.theurbanneststore.com",
       featured: true
     },
-      {
-      title: "XL2Images",
-      description: "A Python script to bulk download images from Excel (.xlsx) sheets containing image URLs. Useful for datasets and product imagery.",
-      techStack: ["Python", "openpyxl", "requests"],
-      image: "🖼️",
-      demoUrl: "#",
-      githubUrl: "https://github.com/shankaalwis/XL2Images",
-      featured: false
-    },
     {
-      title: "Distributed Tax Estimator",
-      description: "A distributed system for estimating personal income tax using Python, Pyro5 for RPC, and SQLite for backend storage.",
-      techStack: ["Python", "Pyro5", "SQLite"],
-      image: "💰",
-      demoUrl: "#",
-      githubUrl: "https://github.com/shankaalwis/pitre-distributed-tax-estimator",
-      featured: false
+      title: "SYCL Dashboard",
+      description: "Manage your subscription business with powerful analytics, multi-currency support, and automated billing workflows.",
+      techStack: ["React", "TypeScript", "Tailwind CSS"],
+      icon: syclIcon,
+      demoUrl: "https://sycl.shankaalwis.dev",
+      githubUrl: "#",
+      featured: true,
+      highlightTag: "Key Features:",
+      highlightText: [
+        <ul style={{ paddingLeft: "1.5em", listStyleType: "disc" }} key="sycl-list">
+          <li><strong>Business Analytics:</strong> Real-time tracking of subscription value, growth trends, and daily user activity.</li>
+          <li><strong>Multi-Currency:</strong> Seamless management of global pricing with built-in currency switching.</li>
+          <li><strong>Billing Automation:</strong> Streamlined active subscription tracking and pending invoice management.</li>
+          <li><strong>Integrated Reports:</strong> Centralized reporting for subscriptions and financial performance.</li>
+        </ul>
+      ],
     },
     {
       title: "Dictionary Search System",
@@ -133,115 +155,107 @@ const ProjectsSection = () => {
 
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 px-6 bg-muted/5">
-      <div className="max-w-6xl mx-auto">
-        <div className={`text-left mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
-              <Code2 className="w-8 h-8 text-primary" />
-            </div>
-            <div>
-              <h2 className="font-tech text-4xl md:text-5xl font-bold text-foreground mb-2">
-                Projects
-              </h2>
-              <p className="text-lg text-muted-foreground font-mono">
-                Real-world applications of passion and problem-solving.
-              </p>
-            </div>
-          </div>
-          <div className="h-px bg-primary w-96 max-w-full"></div>
+    <section id="projects" ref={sectionRef} className="py-24 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Projects</h2>
+          <p className="text-lg text-muted-foreground">
+            Real-world applications of passion and problem-solving.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
-              className={`glow-card p-8 rounded-2xl transition-all duration-700 group relative ${project.featured ? 'lg:col-span-2' : ''} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`bg-card rounded-3xl p-8 border border-border/50 hover:border-primary/20 hover:shadow-xl transition-all duration-500 group relative flex flex-col h-full ${project.featured ? 'lg:col-span-2' : ''} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {project.featured && (
-                <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold">
+                <div className="absolute top-6 right-6 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Featured
                 </div>
               )}
-              
-              <div className={`${project.featured ? 'md:flex md:items-center md:gap-8' : ''}`}>
-                <div className={`${project.featured ? 'md:flex-1' : ''}`}>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      {project.icon ? (
-                        <img
-                          src={project.icon}
-                          alt={`${project.title} icon`}
-                          className="w-full h-full object-contain rounded-lg"
-                        />
-                      ) : (
-                        <span className="text-4xl">{project.image}</span>
-                      )}
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground">{project.title}</h3>
+
+              <div className="flex-1">
+                <div className="flex items-center gap-4 mb-6">
+                  {/* @ts-ignore */}
+                  <div className={`w-14 h-14 flex items-center justify-center rounded-2xl ${project.forceWhiteBackground ? 'bg-white p-2' : 'bg-secondary/50'} group-hover:scale-110 transition-transform duration-300 overflow-hidden`}>
+                    {/* @ts-ignore */}
+                    {project.icon ? (
+                      <img
+                        /* @ts-ignore */
+                        src={project.icon}
+                        alt={`${project.title} icon`}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      /* @ts-ignore */
+                      <span className="text-3xl">{project.image}</span>
+                    )}
                   </div>
-
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
-                    {project.description}
-                  </p>
-                  {/* Highlights (only for projects that have it) */}
-                  {project.highlightText ? (
-                    <div className="mb-6">
-                      <span className="inline-block px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-600 text-xs font-semibold mb-2">
-                        {project.highlightTag ?? "Highlights"}
-                      </span>
-                      <p className="text-muted-foreground">
-                        {project.highlightText}
-                      </p>
-                    </div>
-                  ) : null}
-                  {project.techStack?.filter(Boolean).length ? (
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-foreground mb-3">Tech Stack</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.filter(Boolean).map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30 hover:bg-primary/30 transition-colors duration-200"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ) : null}
-                  
-                  <div className={`flex gap-4 ${project.featured ? 'md:flex-col' : ''}`}>
-                      {/* Demo button — show only if demoUrl exists */}
-                      {project.demoUrl && project.demoUrl !== '#' && (
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 px-3 py-2 rounded-lg w-fit transition-all duration-300 hover:scale-105"
-
-                        >
-                          <Play className="w-4 h-4" />
-                          Demo
-                        </a>
-                      )}
-
-                      {/* Code button — show only if githubUrl exists */}
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 bg-card hover:bg-muted text-foreground border border-border px-4 py-2 rounded-lg w-fit transition-all duration-300 hover:scale-105"
-                        >
-                          <Github className="w-4 h-4" />
-                          Code
-                        </a>
-                      )}
-                    </div>
-
+                  <h3 className="text-2xl font-bold text-foreground leading-tight pr-16">{project.title}</h3>
                 </div>
+
+                <p className="text-muted-foreground mb-6 leading-relaxed text-base">
+                  {project.description}
+                </p>
+
+                {/* Highlights */}
+                {project.highlightText && (
+                  <div className="mb-6 bg-secondary/30 rounded-xl p-5 border border-border/50">
+                    <span className="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-600 text-xs font-bold uppercase tracking-wide mb-3">
+                      {project.highlightTag ?? "Highlights"}
+                    </span>
+                    <div className="text-muted-foreground text-sm space-y-2 [&>ul]:list-disc [&>ul]:pl-4 [&>ul>li]:pl-1">
+                      {project.highlightText}
+                    </div>
+                  </div>
+                )}
+
+                {project.techStack?.filter(Boolean).length > 0 && (
+                  <div className="mb-8">
+                    <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide opacity-70">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.filter(Boolean).map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-auto">
+                {/* Demo button */}
+                {project.demoUrl && project.demoUrl !== '#' && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                  >
+                    <Play className="w-4 h-4 fill-current" />
+                    Live Demo
+                  </a>
+                )}
+
+                {/* Code button */}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-card text-foreground border border-border px-5 py-2.5 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    View Code
+                  </a>
+                )}
               </div>
             </div>
           ))}

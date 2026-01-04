@@ -15,7 +15,7 @@ const Index = () => {
     // Check for saved theme preference or default to dark
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
@@ -37,7 +37,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-mono">
+    <div className="min-h-screen bg-background text-foreground">
       <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
       <HeroSection />
       <ExperienceSection />
