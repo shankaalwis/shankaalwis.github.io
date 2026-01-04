@@ -141,4 +141,98 @@
   .stagger-5 {
     transition-delay: 500ms;
   }
+
+  /* Performance Optimizations */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* GPU acceleration for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Cascading list animations */
+  @keyframes cascadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .cascade-item {
+    animation: cascadeIn 0.6s ease-out backwards;
+  }
+
+  .cascade-item:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .cascade-item:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .cascade-item:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .cascade-item:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .cascade-item:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+
+  .cascade-item:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+
+  .cascade-item:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+
+  .cascade-item:nth-child(8) {
+    animation-delay: 0.4s;
+  }
+
+  /* Micro-interactions */
+  .micro-bounce:hover {
+    animation: microBounce 0.6s ease;
+  }
+
+  @keyframes microBounce {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* Skip to content accessibility */
+  .sr-only:focus,
+  .sr-only:active {
+    @apply static w-auto h-auto overflow-visible;
+    clip: auto;
+    white-space: normal;
+  }
 }
