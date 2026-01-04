@@ -9,6 +9,10 @@ import ContactSection from '@/components/ContactSection';
 import FloatingNav from '@/components/FloatingNav';
 import BackgroundEffect from '@/components/BackgroundEffect';
 import { ScrambleProvider } from '@/contexts/ScrambleContext';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import ScrollProgress from '@/components/ScrollProgress';
+import BackToTop from '@/components/BackToTop';
+import ScrambleToast from '@/components/ScrambleToast';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
@@ -47,20 +51,25 @@ const Index = () => {
   };
 
   return (
-    <ScrambleProvider>
-      <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-        <BackgroundEffect isDark={isDark} effectIndex={effectIndex} />
-        <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
-        <div className="relative z-10 selection:bg-primary/20">
-          <HeroSection />
-          <ExperienceSection />
-          <EducationSection />
-          <CertificationsSection />
-          <ProjectsSection />
-          <ContactSection onCycleEffect={cycleEffect} />
+    <ErrorBoundary>
+      <ScrambleProvider>
+        <ScrollProgress />
+        <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+          <BackgroundEffect isDark={isDark} effectIndex={effectIndex} />
+          <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
+          <div className="relative z-10 selection:bg-primary/20">
+            <HeroSection />
+            <ExperienceSection />
+            <EducationSection />
+            <CertificationsSection />
+            <ProjectsSection />
+            <ContactSection onCycleEffect={cycleEffect} />
+          </div>
+          <BackToTop />
+          <ScrambleToast />
         </div>
-      </div>
-    </ScrambleProvider>
+      </ScrambleProvider>
+    </ErrorBoundary>
   );
 };
 
