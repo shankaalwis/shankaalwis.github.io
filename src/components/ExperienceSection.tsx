@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Calendar, MapPin, Building } from 'lucide-react';
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
 import spaCeylonIcon from './spa-ceylon.png';
 import goodrichIcon from '../assets/experience/glk.jpeg';
 import ceylonAgriIcon from '../assets/experience/cah.jpeg';
@@ -36,6 +38,7 @@ const ExperienceLogo = ({ icon, alt, forceWhiteBackground }: { icon?: string; al
 
 const ExperienceSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -43,6 +46,9 @@ const ExperienceSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          // Re-scramble when scrolled away
+          setShouldDecode(false);
         }
       },
       { threshold: 0.1 }
@@ -138,13 +144,23 @@ const ExperienceSection = () => {
     }
   ];
 
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
   return (
-    <section id="experience" ref={sectionRef} className="py-24 bg-secondary/30">
+    <section
+      id="experience"
+      ref={sectionRef}
+      className="py-24 bg-secondary/30"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+            <TextShuffle text="Experience" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+          </h2>
           <p className="text-lg text-muted-foreground">
-            A journey through roles that shaped my tech story.
+            <ScrambleText text="A journey through roles that shaped my tech story." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
           </p>
         </div>
 
@@ -165,13 +181,17 @@ const ExperienceSection = () => {
                     {/* @ts-ignore */}
                     <ExperienceLogo icon={exp.icon} alt={exp.title} forceWhiteBackground={exp.forceWhiteBackground} />
                     <div>
-                      <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
-                      <p className="text-primary font-medium mt-1">{exp.company}</p>
+                      <h3 className="text-xl font-bold text-foreground">
+                        <ScrambleText text={exp.title} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                      </h3>
+                      <p className="text-primary font-medium mt-1">
+                        <ScrambleText text={exp.company} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                      </p>
                     </div>
                   </div>
 
                   <p className="text-muted-foreground leading-relaxed mb-6 text-sm md:text-base">
-                    {exp.description}
+                    <ScrambleText text={exp.description} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                   </p>
 
                   <div className="flex flex-wrap gap-2">
@@ -180,7 +200,7 @@ const ExperienceSection = () => {
                         key={techIndex}
                         className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md text-xs font-medium"
                       >
-                        {tech}
+                        <ScrambleText text={tech} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                       </span>
                     ))}
                   </div>
@@ -190,11 +210,15 @@ const ExperienceSection = () => {
                 <div className="flex flex-row lg:flex-col gap-4 text-sm text-muted-foreground lg:text-right lg:items-end">
                   <div className="flex items-center gap-2 bg-background/50 px-3 py-1 rounded-full border border-border/50 lg:border-none lg:bg-transparent lg:p-0">
                     <Calendar className="w-4 h-4" />
-                    <span className="font-medium">{exp.duration}</span>
+                    <span className="font-medium">
+                      <ScrambleText text={exp.duration} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 bg-background/50 px-3 py-1 rounded-full border border-border/50 lg:border-none lg:bg-transparent lg:p-0">
                     <MapPin className="w-4 h-4" />
-                    <span>{exp.location}</span>
+                    <span>
+                      <ScrambleText text={exp.location} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </span>
                   </div>
                 </div>
               </div>

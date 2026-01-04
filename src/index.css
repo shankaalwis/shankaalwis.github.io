@@ -73,41 +73,72 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
 }
 
 @layer components {
-    /* Glassmorphism utilities */
-    .glass {
-        @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 dark:border-white/10;
-    }
-    
-    .glass-card {
-        @apply bg-card/80 backdrop-blur-sm border border-border/50 transition-all duration-300;
-    }
 
-    .glass-card:hover {
-        @apply shadow-lg transform -translate-y-1 border-primary/20;
-    }
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 dark:border-white/10;
+  }
 
-    /* Text Gradients */
-    .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70;
-    }
-    
-    .text-gradient-primary {
-         @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60;
-    }
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 transition-all duration-300;
+  }
 
-    /* Container alignment */
-    .section-container {
-        @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
-    }
+  .glass-card:hover {
+    @apply shadow-lg transform -translate-y-1 border-primary/20;
+  }
+
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60;
+  }
+
+  /* Container alignment */
+  .section-container {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+  }
+
+  /* Scroll Reveal Animation Utilities */
+  .reveal-hidden {
+    @apply opacity-0 translate-y-8 blur-sm scale-[0.98] transition-all duration-1000 ease-reveal;
+  }
+
+  .reveal-visible {
+    @apply opacity-100 translate-y-0 blur-0 scale-100;
+  }
+
+  .stagger-1 {
+    transition-delay: 100ms;
+  }
+
+  .stagger-2 {
+    transition-delay: 200ms;
+  }
+
+  .stagger-3 {
+    transition-delay: 300ms;
+  }
+
+  .stagger-4 {
+    transition-delay: 400ms;
+  }
+
+  .stagger-5 {
+    transition-delay: 500ms;
+  }
 }

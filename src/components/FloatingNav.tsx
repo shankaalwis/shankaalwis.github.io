@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Menu, Sun, Moon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet";
+import ScrambleText from './ScrambleText';
+import { useScramble } from '@/contexts/ScrambleContext';
 
 interface FloatingNavProps {
   isDark: boolean;
@@ -11,6 +13,8 @@ interface FloatingNavProps {
 const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [shouldDecode, setShouldDecode] = useState(false);
+  const { toggleScramble } = useScramble();
 
   const navItems = [
     { id: 'hero', label: 'Home' },
@@ -57,17 +61,24 @@ const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
     }
   };
 
+  const handleLogoDoubleClick = () => {
+    toggleScramble();
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-background/80 backdrop-blur-md border-b border-border/50 shadow-sm py-2'
-        : 'bg-transparent py-4'
+      ? 'bg-background/80 backdrop-blur-md border-b border-border/50 shadow-sm py-2'
+      : 'bg-transparent py-4'
       }`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div
-          className="font-bold text-xl tracking-tight cursor-pointer hover:opacity-80 transition-opacity"
+          className="font-bold text-xl tracking-tight cursor-pointer hover:opacity-80 transition-opacity select-none"
           onClick={() => scrollToSection('hero')}
+          onDoubleClick={handleLogoDoubleClick}
+          onMouseEnter={() => setShouldDecode(true)}
+          title="Double-click to toggle text effects"
         >
-          shankaalwis<span className="text-primary">.dev</span>
+          <ScrambleText text="shankaalwis" shouldDecode={shouldDecode} /><span className="text-primary"><ScrambleText text=".dev" shouldDecode={shouldDecode} /></span>
         </div>
 
         {/* Desktop Navigation */}
@@ -77,11 +88,12 @@ const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id
-                  ? 'bg-primary/10 text-primary'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                ? 'bg-primary/10 text-primary'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                 }`}
+              onMouseEnter={() => setShouldDecode(true)}
             >
-              {item.label}
+              <ScrambleText text={item.label} shouldDecode={shouldDecode} />
             </button>
           ))}
           <div className="w-px h-6 bg-border mx-2" />
@@ -122,8 +134,9 @@ const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
                       onClick={() => scrollToSection(item.id)}
                       className={`text-lg font-medium text-left transition-colors ${activeSection === item.id ? 'text-primary' : 'text-foreground/80'
                         }`}
+                      onMouseEnter={() => setShouldDecode(true)}
                     >
-                      {item.label}
+                      <ScrambleText text={item.label} shouldDecode={shouldDecode} />
                     </button>
                   </SheetClose>
                 ))}

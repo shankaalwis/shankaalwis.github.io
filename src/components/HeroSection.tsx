@@ -1,16 +1,46 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  // Re-scramble when scrolled away
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setShouldDecode(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-transparent">
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-transparent"
+    >
       {/* Background gradients */}
       <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] opacity-50" />
       <div className="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] opacity-30" />
@@ -18,18 +48,18 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content Section */}
-          <div className={`space-y-8 text-center lg:text-left transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`space-y-8 text-center lg:text-left ${isVisible ? 'reveal-visible' : 'reveal-hidden'}`}>
             <div className="space-y-4">
-              <h2 className="text-primary font-medium tracking-wide uppercase text-sm md:text-base animate-fade-in">
-                Technologist
+              <h2 className="text-primary font-medium tracking-wide uppercase text-sm md:text-base reveal-hidden stagger-1 reveal-visible">
+                <ScrambleText text="Technologist" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
               </h2>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">
-                SHANKA ALWIS
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight reveal-hidden stagger-2 reveal-visible">
+                <TextShuffle text="SHANKA ALWIS" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
               </h1>
             </div>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-              Technologist weaving code, creativity, and transformation—modernizing systems by day, fortifying grids by night. From digital wellness to cyber defense, I architect smarter, safer, data-driven futures where innovation never sleeps.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal reveal-hidden stagger-3 reveal-visible">
+              <ScrambleText text="Technologist weaving code, creativity, and transformation—modernizing systems by day, fortifying grids by night. From digital wellness to cyber defense, I architect smarter, safer, data-driven futures where innovation never sleeps." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
             </p>
 
             <div className="pt-4 flex justify-center lg:justify-start">
@@ -38,14 +68,14 @@ const HeroSection = () => {
                 className="rounded-full px-8 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105"
                 onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Explore My Journey
+                <ScrambleText text="Explore My Journey" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
 
           {/* Photo Section */}
-          <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`flex justify-center lg:justify-end ${isVisible ? 'reveal-visible' : 'reveal-hidden'} stagger-4`}>
             <div className="relative group">
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] transition-transform duration-500 group-hover:scale-[1.01]">
                 <img

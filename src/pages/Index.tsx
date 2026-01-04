@@ -8,9 +8,11 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import FloatingNav from '@/components/FloatingNav';
 import BackgroundEffect from '@/components/BackgroundEffect';
+import { ScrambleProvider } from '@/contexts/ScrambleContext';
 
 const Index = () => {
   const [isDark, setIsDark] = useState(false);
+  const [effectIndex, setEffectIndex] = useState(0);
 
   useEffect(() => {
     // Check for saved theme preference or default to light
@@ -23,6 +25,10 @@ const Index = () => {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
     }
+
+    // Initialize daily effect rotation
+    const day = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+    setEffectIndex(day % 4);
   }, []);
 
   const toggleTheme = () => {
@@ -36,19 +42,25 @@ const Index = () => {
     }
   };
 
+  const cycleEffect = () => {
+    setEffectIndex(prev => (prev + 1) % 4);
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      <BackgroundEffect isDark={isDark} />
-      <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
-      <div className="relative z-10 selection:bg-primary/20">
-        <HeroSection />
-        <ExperienceSection />
-        <EducationSection />
-        <CertificationsSection />
-        <ProjectsSection />
-        <ContactSection />
+    <ScrambleProvider>
+      <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+        <BackgroundEffect isDark={isDark} effectIndex={effectIndex} />
+        <FloatingNav isDark={isDark} toggleTheme={toggleTheme} />
+        <div className="relative z-10 selection:bg-primary/20">
+          <HeroSection />
+          <ExperienceSection />
+          <EducationSection />
+          <CertificationsSection />
+          <ProjectsSection />
+          <ContactSection onCycleEffect={cycleEffect} />
+        </div>
       </div>
-    </div>
+    </ScrambleProvider>
   );
 };
 

@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Code2, Github, Play, ShoppingCart, BookA, Lock, Timer, Shield, Info } from 'lucide-react';
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
+import ScrambleHTML from './ScrambleHTML';
 import scIcon from './sc.jpeg';
 import fluxIcon from './flux.png';
 import spaIcon from './spa-ceylon.png';
@@ -7,6 +10,7 @@ import syclIcon from './sycl.svg';
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -14,6 +18,8 @@ const ProjectsSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          setShouldDecode(false);
         }
       },
       { threshold: 0.1 }
@@ -154,13 +160,23 @@ const ProjectsSection = () => {
   ];
 
 
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
   return (
-    <section id="projects" ref={sectionRef} className="py-24 bg-transparent">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-24 bg-transparent"
+    >
       <div className="container mx-auto px-4 md:px-6">
-        <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Projects</h2>
-          <p className="text-lg text-muted-foreground">
-            Real-world applications of passion and problem-solving.
+        <div className={`mb-16 max-w-3xl ${isVisible ? 'reveal-visible' : 'reveal-hidden'}`}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 reveal-hidden stagger-1 reveal-visible">
+            <TextShuffle text="Projects" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+          </h2>
+          <p className="text-lg text-muted-foreground reveal-hidden stagger-2 reveal-visible">
+            <ScrambleText text="Real-world applications of passion and problem-solving." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
           </p>
         </div>
 
@@ -168,8 +184,8 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`bg-card rounded-3xl p-8 border border-border/50 hover:border-primary/20 hover:shadow-xl transition-all duration-500 group relative flex flex-col h-full ${project.featured ? 'lg:col-span-2' : ''} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              className={`bg-card rounded-3xl p-8 border border-border/50 hover:border-primary/20 hover:shadow-xl transition-all duration-500 group relative flex flex-col h-full ${project.featured ? 'lg:col-span-2' : ''} ${isVisible ? 'reveal-visible' : 'reveal-hidden'}`}
+              style={{ transitionDelay: `${(index * 100) + 200}ms` }}
             >
               {project.featured && (
                 <div className="absolute top-6 right-6 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -197,35 +213,41 @@ const ProjectsSection = () => {
                       <span className="text-3xl">{project.image}</span>
                     )}
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground leading-tight pr-16">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground leading-tight pr-16">
+                    <ScrambleText text={project.title} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                  </h3>
                 </div>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed text-base">
-                  {project.description}
+                  <ScrambleText text={project.description} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                 </p>
 
                 {/* Highlights */}
                 {project.highlightText && (
                   <div className="mb-6 bg-secondary/30 rounded-xl p-5 border border-border/50">
                     <span className="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-600 text-xs font-bold uppercase tracking-wide mb-3">
-                      {project.highlightTag ?? "Highlights"}
+                      <ScrambleText text={project.highlightTag ?? "Highlights"} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                     </span>
                     <div className="text-muted-foreground text-sm space-y-2 [&>ul]:list-disc [&>ul]:pl-4 [&>ul>li]:pl-1">
-                      {project.highlightText}
+                      <ScrambleHTML shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter}>
+                        {project.highlightText}
+                      </ScrambleHTML>
                     </div>
                   </div>
                 )}
 
                 {project.techStack?.filter(Boolean).length > 0 && (
                   <div className="mb-8">
-                    <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide opacity-70">Tech Stack</h4>
+                    <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide opacity-70">
+                      <ScrambleText text="Tech Stack" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {project.techStack.filter(Boolean).map((tech, techIndex) => (
                         <span
                           key={techIndex}
                           className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium"
                         >
-                          {tech}
+                          <ScrambleText text={tech} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                         </span>
                       ))}
                     </div>
@@ -243,7 +265,7 @@ const ProjectsSection = () => {
                     className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                   >
                     <Play className="w-4 h-4 fill-current" />
-                    Live Demo
+                    <ScrambleText text="Live Demo" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                   </a>
                 )}
 
@@ -256,7 +278,7 @@ const ProjectsSection = () => {
                     className="inline-flex items-center gap-2 bg-card text-foreground border border-border px-5 py-2.5 rounded-full text-sm font-medium hover:bg-secondary transition-colors"
                   >
                     <Github className="w-4 h-4" />
-                    View Code
+                    <ScrambleText text="View Code" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                   </a>
                 )}
               </div>

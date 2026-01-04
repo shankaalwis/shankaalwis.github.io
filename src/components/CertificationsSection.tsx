@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Award, Calendar, ExternalLink, Badge } from 'lucide-react';
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
 
 const CertificationsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -10,6 +13,8 @@ const CertificationsSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          setShouldDecode(false);
         }
       },
       { threshold: 0.1 }
@@ -105,13 +110,23 @@ const CertificationsSection = () => {
     }
   ];
 
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
   return (
-    <section id="certifications" ref={sectionRef} className="py-24 bg-secondary/30">
+    <section
+      id="certifications"
+      ref={sectionRef}
+      className="py-24 bg-secondary/30"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Certifications</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+            <TextShuffle text="Certifications" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+          </h2>
           <p className="text-lg text-muted-foreground">
-            Proof of continued learning and professional milestones.
+            <ScrambleText text="Proof of continued learning and professional milestones." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
           </p>
         </div>
 
@@ -131,20 +146,24 @@ const CertificationsSection = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-foreground leading-snug mb-1">{cert.name}</h3>
+                  <h3 className="text-lg font-bold text-foreground leading-snug mb-1">
+                    <ScrambleText text={cert.name} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                  </h3>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span className="font-semibold text-primary">{cert.organization}</span>
+                    <span className="font-semibold text-primary">
+                      <ScrambleText text={cert.organization} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </span>
                     <span>•</span>
                     <div className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
-                      <span>{cert.year}</span>
+                      <span><ScrambleText text={cert.year} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
                     </div>
                   </div>
                 </div>
               </div>
 
               <p className="text-muted-foreground leading-relaxed text-sm mb-6">
-                {cert.description}
+                <ScrambleText text={cert.description} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
               </p>
 
               <div className="mt-auto">
@@ -154,7 +173,7 @@ const CertificationsSection = () => {
                       key={skillIndex}
                       className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md text-xs font-medium"
                     >
-                      {skill}
+                      <ScrambleText text={skill} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                     </span>
                   ))}
                 </div>

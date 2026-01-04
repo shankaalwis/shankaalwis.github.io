@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { GraduationCap, Calendar, MapPin, School } from 'lucide-react';
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
 
 const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
   const [hasError, setHasError] = useState(false);
@@ -31,6 +33,7 @@ const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
 
 const EducationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -38,6 +41,8 @@ const EducationSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          setShouldDecode(false);
         }
       },
       { threshold: 0.1 }
@@ -102,13 +107,23 @@ const EducationSection = () => {
     }
   ];
 
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
   return (
-    <section id="education" ref={sectionRef} className="py-24 bg-transparent">
+    <section
+      id="education"
+      ref={sectionRef}
+      className="py-24 bg-transparent"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Education</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+            <TextShuffle text="Education" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+          </h2>
           <p className="text-lg text-muted-foreground">
-            Formal foundations of knowledge and growth.
+            <ScrambleText text="Formal foundations of knowledge and growth." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
           </p>
         </div>
 
@@ -122,8 +137,12 @@ const EducationSection = () => {
               <div className="flex flex-col h-full">
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{edu.degree}</h3>
-                    <p className="text-base font-medium text-muted-foreground">{edu.institution}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      <ScrambleText text={edu.degree} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </h3>
+                    <p className="text-base font-medium text-muted-foreground">
+                      <ScrambleText text={edu.institution} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </p>
                   </div>
                   <EducationLogo icon={edu.icon} alt={edu.institution} />
                 </div>
@@ -131,21 +150,21 @@ const EducationSection = () => {
                 <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1.5 bg-secondary/50 px-2.5 py-1 rounded-md">
                     <Calendar className="w-4 h-4" />
-                    <span>{edu.duration}</span>
+                    <span><ScrambleText text={edu.duration} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
                   </div>
                   <div className="flex items-center gap-1.5 bg-secondary/50 px-2.5 py-1 rounded-md">
                     <MapPin className="w-4 h-4" />
-                    <span>{edu.location}</span>
+                    <span><ScrambleText text={edu.location} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
                   </div>
                   {edu.gpa && (
                     <div className="flex items-center gap-1.5 bg-primary/10 text-primary px-2.5 py-1 rounded-md font-medium">
-                      <span>GPA: {edu.gpa}</span>
+                      <span><ScrambleText text={`GPA: ${edu.gpa}`} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
                     </div>
                   )}
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed text-sm lg:text-base mt-auto">
-                  {edu.notes}
+                  <ScrambleText text={edu.notes} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
                 </p>
               </div>
             </div>
