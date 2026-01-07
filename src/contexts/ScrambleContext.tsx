@@ -8,7 +8,7 @@ interface ScrambleContextType {
 }
 
 const ScrambleContext = createContext<ScrambleContextType>({
-    isEnabled: true,
+    isEnabled: false,
     toggleScramble: () => { },
     showToast: false,
     setShowToast: () => { },
@@ -17,7 +17,7 @@ const ScrambleContext = createContext<ScrambleContextType>({
 export const useScramble = () => useContext(ScrambleContext);
 
 export const ScrambleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isEnabled, setIsEnabled] = useState(true);
+    const [isEnabled, setIsEnabled] = useState(false);
     const [showToast, setShowToast] = useState(false);
 
     const toggleScramble = () => {
