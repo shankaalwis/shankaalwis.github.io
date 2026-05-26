@@ -1,6 +1,9 @@
-
 import { useEffect, useState } from 'react';
-import { User, Briefcase, GraduationCap, Award, Code, Mail, Sun, Moon } from 'lucide-react';
+import { Menu, Sun, Moon } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet";
+import ScrambleText from './ScrambleText';
+import { useScramble } from '@/contexts/ScrambleContext';
 
 interface FloatingNavProps {
   isDark: boolean;
@@ -8,19 +11,24 @@ interface FloatingNavProps {
 }
 
 const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [shouldDecode, setShouldDecode] = useState(false);
+  const { toggleScramble } = useScramble();
 
   const navItems = [
-    { id: 'hero', icon: User, label: 'Home' },
-    { id: 'experience', icon: Briefcase, label: 'Experience' },
-    { id: 'education', icon: GraduationCap, label: 'Education' },
-    { id: 'certifications', icon: Award, label: 'Certifications' },
-    { id: 'projects', icon: Code, label: 'Projects' },
-    { id: 'contact', icon: Mail, label: 'Contact' },
+    { id: 'hero', label: 'Home' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    { id: 'certifications', label: 'Certifications' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100;
 
@@ -40,45 +48,104 @@ const FloatingNav = ({ isDark, toggleTheme }: FloatingNavProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
+  const handleLogoDoubleClick = () => {
+    toggleScramble();
+  };
+
   return (
-    <nav className="fixed bottom-6 right-6 z-50">
-      <div className="flex flex-col items-center space-y-2 bg-card/80 backdrop-blur-md border border-border/20 rounded-2xl p-3 shadow-2xl">
-        {navItems.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={`p-3 rounded-xl transition-all duration-300 group relative ${
-              activeSection === item.id
-                ? 'bg-primary text-primary-foreground cyber-glow'
-                : 'hover:bg-primary/20 text-muted-foreground hover:text-primary'
-            }`}
-            title={item.label}
-          >
-            <item.icon className="w-5 h-5" />
-            <span className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-card border border-border rounded-lg px-2 py-1 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-              {item.label}
-            </span>
-          </button>
-        ))}
-        
-        <div className="w-full h-px bg-border my-2"></div>
-        
-        <button
-          onClick={toggleTheme}
-          className="p-3 rounded-xl transition-all duration-300 hover:bg-primary/20 text-muted-foreground hover:text-primary group relative"
-          title={isDark ? 'Light Mode' : 'Dark Mode'}
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+      ? 'bg-background/80 backdrop-blur-md border-b border-border/50 shadow-sm py-2'
+      : 'bg-transparent py-4'
+      }`}>
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <div
+          className="font-bold text-xl tracking-tight cursor-pointer hover:opacity-80 transition-opacity select-none"
+          onClick={() => scrollToSection('hero')}
+          onDoubleClick={handleLogoDoubleClick}
+          onMouseEnter={() => setShouldDecode(true)}
+          title="Double-click to toggle text effects"
         >
-          {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          <span className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-card border border-border rounded-lg px-2 py-1 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-            {isDark ? 'Light Mode' : 'Dark Mode'}
-          </span>
-        </button>
+          <ScrambleText text="shankaalwis" shouldDecode={shouldDecode} /><span className="text-primary"><ScrambleText text=".dev" shouldDecode={shouldDecode} /></span>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-1">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeSection === item.id
+                ? 'bg-primary/10 text-primary'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                }`}
+              onMouseEnter={() => setShouldDecode(true)}
+            >
+              <ScrambleText text={item.label} shouldDecode={shouldDecode} />
+            </button>
+          ))}
+          <div className="w-px h-6 bg-border mx-2" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="rounded-full"
+            aria-label="Toggle theme"
+          >
+            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </Button>
+        </nav>
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="rounded-full"
+          >
+            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </Button>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="rounded-full bg-background/50 backdrop-blur-sm">
+                <Menu className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="w-[300px] border-l border-border/50 backdrop-blur-xl bg-background/80">
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <div className="flex flex-col gap-6 mt-10">
+                {navItems.map((item) => (
+                  <SheetClose key={item.id} asChild>
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={`text-lg font-medium text-left transition-colors ${activeSection === item.id ? 'text-primary' : 'text-foreground/80'
+                        }`}
+                      onMouseEnter={() => setShouldDecode(true)}
+                    >
+                      <ScrambleText text={item.label} shouldDecode={shouldDecode} />
+                    </button>
+                  </SheetClose>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

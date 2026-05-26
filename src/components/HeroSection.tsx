@@ -1,65 +1,95 @@
+import { useEffect, useState, useRef } from 'react';
+import { ArrowDown } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
 
-import { useEffect, useState } from 'react';
-import { Code } from 'lucide-react';
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="hero" className="min-h-screen flex items-center relative overflow-hidden bg-background">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
-        <div className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+  // Re-scramble when scrolled away
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setShouldDecode(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-transparent"
+    >
+      {/* Background gradients */}
+      <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] opacity-50" />
+      <div className="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] opacity-30" />
+
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content Section */}
-          <div className="text-left order-2 lg:order-1">
-            {/* Main title */}
-            <h1 className="font-tech text-3xl md:text-5xl xl:text-7xl font-bold mb-4 md:mb-6 animate-glow-pulse text-primary dark:text-white lg:text-8xl">
-              SHANKA ALWIS
-            </h1>
-            
-            {/* Subtitle */}
-            <div className="relative mb-6 md:mb-8">
-              <h2 className="font-tech text-lg md:text-xl xl:text-3xl text-primary mb-3 md:mb-4 tracking-wider lg:text-4xl">
-                Technologist
+          <div className={`space-y-8 text-center lg:text-left ${isVisible ? 'reveal-visible' : 'reveal-hidden'}`}>
+            <div className="space-y-4">
+              <h2 className="text-primary font-medium tracking-wide uppercase text-sm md:text-base reveal-hidden stagger-1 reveal-visible">
+                <ScrambleText text="Technologist" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
               </h2>
-              <div className="h-px bg-primary w-48 md:w-64"></div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight reveal-hidden stagger-2 reveal-visible">
+                <TextShuffle text="SHANKA ALWIS" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+              </h1>
             </div>
 
-            {/* Tagline */}
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8 md:mb-12 max-w-2xl leading-relaxed font-mono">
-              Technologist weaving code, creativity, and transformation—modernizing systems by day, fortifying grids by night. From digital wellness to cyber defense, I architect smarter, safer, data-driven futures where innovation never sleeps.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal reveal-hidden stagger-3 reveal-visible">
+              <ScrambleText text="Technologist weaving code, creativity, and transformation—modernizing systems by day, fortifying grids by night. From digital wellness to cyber defense, I architect smarter, safer, data-driven futures where innovation never sleeps." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
             </p>
 
-            {/* CTA Button */}
-            <div>
-              <button className="bg-primary text-primary-foreground font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg font-mono text-sm md:text-base" onClick={() => document.getElementById('experience')?.scrollIntoView({
-              behavior: 'smooth'
-            })}>
-                Explore My Journey
-              </button>
+            <div className="pt-4 flex justify-center lg:justify-start">
+              <Button
+                size="lg"
+                className="rounded-full px-8 h-12 text-base shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105"
+                onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                <ScrambleText text="Explore My Journey" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                <ArrowDown className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
 
           {/* Photo Section */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-primary/20 border-2 border-primary/30 flex items-center justify-center cyber-glow">
-                <img src="profile v2.png" alt="SHANKA ALWIS"  /> 
-                <div className="text-center text-muted-foreground">                 
-                </div>
+          <div className={`flex justify-center lg:justify-end ${isVisible ? 'reveal-visible' : 'reveal-hidden'} stagger-4`}>
+            <div className="relative group">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] transition-transform duration-500 group-hover:scale-[1.01]">
+                <img
+                  src="/profile-2026.png"
+                  alt="SHANKA ALWIS"
+                  className="w-full h-full object-contain filter drop-shadow-2xl"
+                />
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/50 rounded-full blur-sm"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/50 rounded-full blur-sm"></div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

@@ -19,8 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'tech': ['Space Mono', 'monospace'],
-				'mono': ['Space Mono', 'monospace'],
+				sans: ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -56,59 +55,38 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				'cyber-glow': 'hsl(var(--cyber-glow))',
-				'electric-blue': 'hsl(var(--electric-blue))',
-				'neon-cyan': 'hsl(var(--neon-cyan))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			backgroundImage: {
-				'tech-gradient': 'var(--tech-gradient)',
+			transitionTimingFunction: {
+				'reveal': 'cubic-bezier(0.22, 1, 0.36, 1)',
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				},
 				'fade-in': {
-					'0%': {
-						opacity: '0',
-						transform: 'translateY(30px)'
-					},
-					'100%': {
-						opacity: '1',
-						transform: 'translateY(0)'
-					}
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				},
-				'glow-pulse': {
-					'0%, 100%': {
-						boxShadow: '0 0 20px hsla(var(--cyber-glow), 0.3)'
-					},
-					'50%': {
-						boxShadow: '0 0 40px hsla(var(--cyber-glow), 0.6)'
-					}
+				'slide-up': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.8s ease-out',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite'
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-up': 'slide-up 0.7s ease-out',
 			}
 		}
 	},

@@ -1,6 +1,7 @@
-
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { GraduationCap, Calendar, MapPin, School } from 'lucide-react';
+import TextShuffle from './TextShuffle';
+import ScrambleText from './ScrambleText';
 
 const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
   const [hasError, setHasError] = useState(false);
@@ -8,8 +9,8 @@ const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
   if (!icon || hasError) {
     return (
       <div className="flex-shrink-0">
-        <div className="w-16 h-16 rounded-2xl border border-primary/20 bg-primary/10 flex items-center justify-center">
-          <School className="w-8 h-8 text-primary" aria-hidden="true" />
+        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <School className="w-6 h-6 text-primary" aria-hidden="true" />
           <span className="sr-only">{alt}</span>
         </div>
       </div>
@@ -18,11 +19,11 @@ const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
 
   return (
     <div className="flex-shrink-0">
-      <div className="w-16 h-16 rounded-2xl border border-primary/20 overflow-hidden bg-primary/5 flex items-center justify-center">
+      <div className="w-12 h-12 rounded-xl overflow-hidden bg-white border border-border/50 flex items-center justify-center p-1">
         <img
           src={icon}
           alt={alt}
-          className="max-w-[70%] max-h-[70%] object-contain"
+          className="w-full h-full object-contain"
           onError={() => setHasError(true)}
         />
       </div>
@@ -32,6 +33,7 @@ const EducationLogo = ({ icon, alt }: { icon?: string; alt: string }) => {
 
 const EducationSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldDecode, setShouldDecode] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -39,6 +41,8 @@ const EducationSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+        } else {
+          setShouldDecode(false);
         }
       },
       { threshold: 0.1 }
@@ -59,8 +63,8 @@ const EducationSection = () => {
       icon: "https://www.ecu.edu.lk/wp-content/themes/wp-edith-cowan-sri-lanka/images/site-logo.svg",
       duration: "2023 - 2025",
       gpa: "3.3/4.0",
-      notes: "Pursuing in-depth studies in network and information security, ethical hacking, digital forensics, and secure systems design to develop expertise in protecting digital assets and mitigating cyber threats.",
-      
+      notes: "Completed in-depth studies in network and information security, ethical hacking, digital forensics, and secure systems design, developing expertise in protecting digital assets and mitigating cyber threats.",
+
     },
     {
       degree: "Diploma of Science in Computing/IT",
@@ -70,7 +74,7 @@ const EducationSection = () => {
       duration: "2023 - 2024",
       gpa: "3.3/4.0",
       notes: "Focused on applied communications, systems and database design, computer security, and core computing fundamentals, building a strong foundation for advanced studies in information technology.",
-      
+
     },
     {
       degree: "Diploma of Science in Computing/IT",
@@ -80,7 +84,7 @@ const EducationSection = () => {
       duration: "2023 - 2024",
       gpa: "3.3/4.0",
       notes: "Studied system analysis, programming principles, mathematics for computing, and professional science essentials, developing technical skills and problem-solving capabilities for IT and computing applications.",
-      
+
     },
     {
       degree: "Motor Mechanism Part-I/II",
@@ -90,7 +94,7 @@ const EducationSection = () => {
       duration: "2023 - 2024",
       gpa: "",
       notes: "Completed foundational training in motor mechanism, covering basic automotive systems, engine components, maintenance practices, and mechanical principles essential for further specialization in automobile engineering.",
-      
+
     },
     {
       degree: "GCE Advanced Level – Mathematics",
@@ -99,68 +103,72 @@ const EducationSection = () => {
       icon: "https://cdn.lyceum.lk/edgemedia/20240529130041/lyceum-school-symbol.png",
       duration: "2016 - 2019",
       notes: "Focused on Pure Mathematics, Applied Mathematics, and related subjects, building strong analytical, logical reasoning, and problem-solving skills.",
-      
+
     }
   ];
 
+  const handleMouseEnter = () => {
+    setShouldDecode(true);
+  };
+
   return (
-    <section id="education" ref={sectionRef} className="py-12 md:py-20 px-4 md:px-6 bg-muted/5">
-      <div className="max-w-6xl mx-auto">
-        <div className={`text-left mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-4 mb-6">
-            <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 w-fit">
-              <GraduationCap className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-            </div>
-            <div>
-              <h2 className="font-tech text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2">
-                Education
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground font-mono">
-                Formal foundations of knowledge and growth.
-              </p>
-            </div>
-          </div>
-          <div className="h-px bg-primary w-64 md:w-96 max-w-full"></div>
+    <section
+      id="education"
+      ref={sectionRef}
+      className="py-24 bg-transparent"
+    >
+      <div className="container mx-auto px-4 md:px-6">
+        <div className={`mb-16 max-w-3xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+            <TextShuffle text="Education" shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            <ScrambleText text="Formal foundations of knowledge and growth." shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {education.map((edu, index) => (
-            <div 
+            <div
               key={index}
-              className={`glow-card p-6 md:p-8 rounded-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 200}ms` }}
+              className={`bg-card rounded-2xl p-6 md:p-8 border border-border/50 hover:border-primary/20 hover:shadow-lg transition-all duration-500 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="space-y-4 md:space-y-6">               
-                <div className="flex items-start gap-4">
-                  <EducationLogo icon={edu.icon} alt={`${edu.institution} logo`} />
+              <div className="flex flex-col h-full">
+                <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="flex-1">
-                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 font-mono">{edu.degree}</h3>
-                    <div className="flex flex-col space-y-2 text-muted-foreground">
-                      <span className="font-semibold text-primary text-base md:text-lg font-mono">{edu.institution}</span>
-                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      <ScrambleText text={edu.degree} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </h3>
+                    <p className="text-base font-medium text-muted-foreground">
+                      <ScrambleText text={edu.institution} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                    </p>
                   </div>
+                  <EducationLogo icon={edu.icon} alt={edu.institution} />
                 </div>
 
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
-                    <span className="font-mono text-sm md:text-base">{edu.location}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
+                <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-1.5 bg-secondary/50 px-2.5 py-1 rounded-md">
                     <Calendar className="w-4 h-4" />
-                    <span className="font-mono text-sm md:text-base">{edu.duration}</span>
+                    <span><ScrambleText text={edu.duration} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
                   </div>
+                  <div className="flex items-center gap-1.5 bg-secondary/50 px-2.5 py-1 rounded-md">
+                    <MapPin className="w-4 h-4" />
+                    <span><ScrambleText text={edu.location} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
+                  </div>
+                  {edu.gpa && (
+                    <div className="flex items-center gap-1.5 bg-primary/10 text-primary px-2.5 py-1 rounded-md font-medium">
+                      <span><ScrambleText text={`GPA: ${edu.gpa}`} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} /></span>
+                    </div>
+                  )}
                 </div>
 
-                {edu.gpa && (
-                  <div className="text-primary font-medium font-mono">GPA: {edu.gpa}</div>
-                )}
-
-                <p className="text-muted-foreground leading-relaxed font-mono text-sm md:text-base">{edu.notes}</p>
+                <p className="text-muted-foreground leading-relaxed text-sm lg:text-base mt-auto">
+                  <ScrambleText text={edu.notes} shouldDecode={shouldDecode} onTriggerDecode={handleMouseEnter} />
+                </p>
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </section>
